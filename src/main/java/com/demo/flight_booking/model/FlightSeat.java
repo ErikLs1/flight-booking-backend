@@ -32,7 +32,7 @@ public class FlightSeat {
     private Flight flight;
 
     @Column(nullable = false)
-    private boolean isBooked;
+    private Boolean isBooked;
 
     @OneToMany(mappedBy = "flightSeat", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
