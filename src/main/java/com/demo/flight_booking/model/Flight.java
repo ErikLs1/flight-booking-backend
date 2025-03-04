@@ -49,8 +49,6 @@ public class Flight {
     @Column(nullable = false, precision = 10, scale = 2)
     private Double basePrice;
 
-    private Integer availableSeats; // Think about deleting it
-
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)
     private List<FlightSeat> flightSeats;
 }
