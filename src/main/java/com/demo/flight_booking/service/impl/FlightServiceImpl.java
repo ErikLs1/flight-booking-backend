@@ -1,6 +1,7 @@
 package com.demo.flight_booking.service.impl;
 
 import com.demo.flight_booking.dto.FlightDTO;
+import com.demo.flight_booking.dto.filter.FlightFilterDTO;
 import com.demo.flight_booking.mapper.FlightMapper;
 import com.demo.flight_booking.model.Flight;
 import com.demo.flight_booking.repository.FlightRepository;
@@ -8,6 +9,7 @@ import com.demo.flight_booking.service.FlightService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,5 +62,29 @@ public class FlightServiceImpl implements FlightService {
         }
 
         flightRepository.deleteById(id);
+    }
+
+    @Override
+    public List<FlightDTO> searchFlights(FlightFilterDTO filter) {
+        LocalDateTime depStart = filter.getDepartureStartTime() != null
+                ? filter.getDepartureStartTime()
+                : LocalDateTime.of(1970, 1, 1, 0, 0);
+
+        LocalDateTime depEnd = filter.getDepartureEndTime() != null
+                ? filter.getDepartureEndTime()
+                : LocalDateTime.of(9999, 12, 31, 23, 59);
+
+        List<Flight> flights = flightRepository.filterFlights(
+                filter.getDepartureAirportId(),
+                filter.getArrivalAirportId(),
+                filter.getAirlineId(),
+                filter.getMaxPrice(),
+                depStart,
+                depEnd
+        );
+
+        return flights.stream()
+                .map(flightMapper::toDTO)
+                .collect(Collectors.toList());
     }
 }

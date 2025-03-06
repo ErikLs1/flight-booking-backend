@@ -1,13 +1,12 @@
 package com.demo.flight_booking.controller;
 
 import com.demo.flight_booking.dto.FlightDTO;
+import com.demo.flight_booking.dto.filter.FlightFilterDTO;
 import com.demo.flight_booking.service.FlightService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,5 +45,12 @@ public class FlightController implements BasicController<FlightDTO, Long> {
     public ResponseEntity<String> delete(Long id) {
         flightService.delete(id);
         return ResponseEntity.ok("Flight deleted!");
+    }
+
+
+    @PostMapping("/filter")
+    public ResponseEntity<List<FlightDTO>> filterFlights(@RequestBody FlightFilterDTO filter) {
+        List<FlightDTO> result = flightService.searchFlights(filter);
+        return ResponseEntity.ok(result);
     }
 }

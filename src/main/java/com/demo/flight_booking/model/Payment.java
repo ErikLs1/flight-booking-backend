@@ -24,7 +24,7 @@ public class Payment {
     @JoinColumn(name = "ticket_id", nullable = false)
     private Ticket ticket;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false)
     private Double amount;
 
     @Enumerated(EnumType.STRING)

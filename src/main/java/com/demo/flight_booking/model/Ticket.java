@@ -28,7 +28,7 @@ public class Ticket {
     @JoinColumn(name = "flight_seat_id", nullable = false)
     private FlightSeat flightSeat;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false)
     private Double ticketPrice;
 
     @Column(nullable = false)

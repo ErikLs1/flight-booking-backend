@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SeatDTO {
     private Long seatId;
-    private SeatClass seatClassId;
-    private Aircraft aircraftId;
+    private Long seatClassId;
+    private Long aircraftId;
     private String seatNumber;
 }

@@ -46,7 +46,7 @@ public class Flight {
     @Column(nullable = false)
     private LocalDateTime arrivalTime;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false)
     private Double basePrice;
 
     @OneToMany(mappedBy = "flight", cascade = CascadeType.ALL)

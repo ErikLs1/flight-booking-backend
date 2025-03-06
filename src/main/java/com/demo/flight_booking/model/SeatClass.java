@@ -30,13 +30,13 @@ public class SeatClass {
     @Column(nullable = false)
     private Boolean nearExit;
 
-    @Column(nullable = false)
+    @Column(name = "window_seat", nullable = false)
     private Boolean window;
 
     @Column(nullable = false)
     private Boolean aisle;
 
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false)
     private Double basePrice;
 
     @OneToMany(mappedBy = "seatClass", cascade = CascadeType.ALL)
