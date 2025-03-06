@@ -1,7 +1,5 @@
 package com.demo.flight_booking.dto;
 
-import com.demo.flight_booking.model.Aircraft;
-import com.demo.flight_booking.model.SeatClass;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

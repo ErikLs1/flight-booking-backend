@@ -1,13 +1,13 @@
 package com.demo.flight_booking.controller;
 
 import com.demo.flight_booking.dto.SeatDTO;
+import com.demo.flight_booking.dto.filter.SeatRecommendationDTO;
 import com.demo.flight_booking.service.SeatService;
+import com.demo.flight_booking.service.impl.SeatRecommendationService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +17,7 @@ import java.util.List;
 @RequestMapping("/api/seat")
 public class SeatController implements BasicController<SeatDTO, Long> {
     private final SeatService seatService;
+    private final SeatRecommendationService seatRecommendationService;
 
     @Override
     public ResponseEntity<SeatDTO> create(SeatDTO dto) {
@@ -46,5 +47,11 @@ public class SeatController implements BasicController<SeatDTO, Long> {
     public ResponseEntity<String> delete(Long id) {
         seatService.delete(id);
         return ResponseEntity.ok("Seat deleted!");
+    }
+
+    @PostMapping("/recommend")
+    public ResponseEntity<List<SeatDTO>> recommendSeats(@RequestBody SeatRecommendationDTO filter) {
+        List<SeatDTO> recommended = seatRecommendationService.recommendSeats(filter);
+        return ResponseEntity.ok(recommended);
     }
 }
