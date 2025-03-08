@@ -12,4 +12,10 @@ public class SeatDTO {
     private Long seatClassId;
     private Long aircraftId;
     private String seatNumber;
+    private Integer rowNumber;
+    private String seatLetter;
+    private Boolean extraLegRoom;
+    private Boolean nearExit;
+    private Boolean window;
+    private Boolean aisle;
 }

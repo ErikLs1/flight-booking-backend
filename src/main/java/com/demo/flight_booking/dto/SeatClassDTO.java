@@ -11,9 +11,5 @@ import lombok.NoArgsConstructor;
 public class SeatClassDTO {
     private Long seatClassId;
     private SeatClassType seatClassName;
-    private Boolean extraLegRoom;
-    private Boolean nearExit;
-    private Boolean window;
-    private Boolean aisle;
     private Double basePrice;
 }

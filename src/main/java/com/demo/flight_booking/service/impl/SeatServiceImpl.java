@@ -29,7 +29,14 @@ public class SeatServiceImpl implements SeatService {
     public SeatDTO update(Long id, SeatDTO dto) {
         Seat seat = seatRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Seat not found with id: " + id));
+
         seat.setSeatNumber(dto.getSeatNumber());
+        seat.setRowNumber(dto.getRowNumber());
+        seat.setSeatLetter(dto.getSeatLetter());
+        seat.setExtraLegRoom(dto.getExtraLegRoom());
+        seat.setNearExit(dto.getNearExit());
+        seat.setWindow(dto.getWindow());
+        seat.setAisle(dto.getAisle());
 
         Seat updated = seatRepository.save(seat);
         return seatMapper.toDTO(updated);

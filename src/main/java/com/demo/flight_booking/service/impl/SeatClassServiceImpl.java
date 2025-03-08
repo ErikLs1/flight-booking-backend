@@ -30,10 +30,6 @@ public class SeatClassServiceImpl implements SeatClassService {
         SeatClass seatClass = seatClassRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("SeatClass not found with id: " + id));
 
-        seatClass.setExtraLegRoom(dto.getExtraLegRoom());
-        seatClass.setNearExit(dto.getNearExit());
-        seatClass.setWindow(dto.getWindow());
-        seatClass.setAisle(dto.getAisle());
         seatClass.setBasePrice(dto.getBasePrice());
 
         SeatClass updated = seatClassRepository.save(seatClass);

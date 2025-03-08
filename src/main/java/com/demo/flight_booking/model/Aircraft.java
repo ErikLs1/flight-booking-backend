@@ -29,6 +29,9 @@ public class Aircraft {
     private Integer aircraftFirstClassSeats;
 
     @OneToMany(mappedBy = "aircraft", cascade = CascadeType.ALL)
+    private List<SeatClass> seatClasses;
+
+    @OneToMany(mappedBy = "aircraft", cascade = CascadeType.ALL)
     private List<Seat> seats;
 
     @OneToMany(mappedBy = "aircraft", cascade = CascadeType.ALL)

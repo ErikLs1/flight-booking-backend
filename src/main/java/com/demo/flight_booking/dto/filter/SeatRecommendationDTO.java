@@ -10,10 +10,10 @@ public class SeatRecommendationDTO {
 
     // ECONOMY, BUSINESS, etc.
     private SeatClassType seatClassType;
-    private Boolean windowPreferred;
-    private Boolean aislePreferred;
     private Boolean extraLegRoomPreferred;
     private Boolean nearExitPreferred;
+    private Boolean windowPreferred;
+    private Boolean aislePreferred;
 
     // if they want to sit together
     private Boolean adjacentPreferred;

@@ -20,21 +20,13 @@ public class SeatClass {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seatClassId;
 
+    @ManyToOne
+    @JoinColumn(name = "aircraft_id", nullable = false)
+    private Aircraft aircraft;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private SeatClassType seatClassName;
-
-    @Column(nullable = false)
-    private Boolean extraLegRoom;
-
-    @Column(nullable = false)
-    private Boolean nearExit;
-
-    @Column(name = "window_seat", nullable = false)
-    private Boolean window;
-
-    @Column(nullable = false)
-    private Boolean aisle;
 
     @Column(nullable = false)
     private Double basePrice;
