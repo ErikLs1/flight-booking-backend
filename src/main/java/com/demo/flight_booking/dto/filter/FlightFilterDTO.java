@@ -14,32 +14,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class FlightFilterDTO {
-    /**
-     * The id of departure airport.
-     */
-    private Long departureAirportId;
 
-    /**
-     * The id of arrival airport.
-     */
-    private Long arrivalAirportId;
-    /**
-     * The id of the airline.
-     */
-    private Long airlineId;
-
-    /**
-     * The maximum price for the flight.
-     */
+    private String departureCity;
+    private String arrivalCity;
+    private String airlineName;
     private Double maxPrice;
-
-    /**
-     * The departure start time for the flight.
-     */
     private LocalDateTime departureStartTime;
-
-    /**
-     * The departure end time for the flight.
-     */
     private LocalDateTime departureEndTime;
 }

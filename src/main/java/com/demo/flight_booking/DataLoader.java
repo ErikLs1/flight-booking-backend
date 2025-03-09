@@ -1,41 +1,66 @@
 package com.demo.flight_booking;
 
-import com.demo.flight_booking.model.Aircraft;
-import com.demo.flight_booking.model.Seat;
-import com.demo.flight_booking.model.SeatClass;
+import com.demo.flight_booking.model.*;
 import com.demo.flight_booking.model.enums.SeatClassType;
-import com.demo.flight_booking.record.AircraftRecord;
-import com.demo.flight_booking.record.SeatClassRecord;
-import com.demo.flight_booking.record.SeatRecord;
-import com.demo.flight_booking.repository.AircraftRepository;
-import com.demo.flight_booking.repository.SeatClassRepository;
-import com.demo.flight_booking.repository.SeatRepository;
+import com.demo.flight_booking.record.*;
+import com.demo.flight_booking.repository.*;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDateTime;
 import java.util.*;
 
 
 @Data
 @Component
+@Order(1)
 public class DataLoader implements CommandLineRunner {
 
     private final ObjectMapper objectMapper;
     private final SeatClassRepository seatClassRepository;
     private final AircraftRepository aircraftRepository;
     private final SeatRepository seatRepository;
+    private final AirlineRepository airlineRepository;
+    private final AirportRepository airportRepository;
+    private final FlightRepository flightRepository;
 
     @Override
     public void run(String... args) throws Exception {
+        String[] filePaths = {
+                "data/planes/airbus/plane-A320-data.json",
+                "data/planes/airbus/plane-A321-data.json",
+                "data/planes/airbus/plane-A322-data.json",
+                "data/planes/embraer/plane-embraer-190-data.json",
+                "data/planes/embraer/plane-embraer-191-data.json",
+                "data/planes/embraer/plane-embraer-192-data.json"
+        };
+
+        for (String path : filePaths) {
+            processFile(path);
+        }
+
+        String flightsPath = "data/flights/airlines-airports-flights.json";
+        processFlightsFile(flightsPath);
+
+        System.out.println("Data loaded");
+    }
+
+    /**
+     * Reads JSON file and inserts aircraft, seat, classes, and seats into the database.
+     *
+     * @param filePath
+     */
+    private void processFile(String filePath) {
         // Parse JSON into record objects
         JsonNode json;
-        try (InputStream inputStream = new ClassPathResource("data/plane-A320-data.json").getInputStream()) {
+        try (InputStream inputStream = new ClassPathResource(filePath).getInputStream()) {
             json = objectMapper.readTree(inputStream);
         } catch (IOException e) {
             throw new RuntimeException("Failed to read JSON data", e);
@@ -53,34 +78,7 @@ public class DataLoader implements CommandLineRunner {
 
         // Insert seats
         insertSeats(seatRecords, seatClassMap, aircraftEntity);
-
-        System.out.println("Data loaded");
-
-//        // Parse aircraft object
-//        JsonNode aircraftNode = getAircraft(json);
-//        AircraftRecord aircraftRecord = createAircraftFromNode(aircraftNode);
-//
-//        // Parse "setClasses" array
-//        JsonNode seatClassesNode = getSeatClasses(json);
-//        List<SeatClassRecord> seatClassRecords = new ArrayList<>();
-//        for (JsonNode scNode: seatClassesNode) {
-//            seatClassRecords.add(createSeatClassFromNode(scNode));
-//        }
-//
-//        // Parse "seats" array
-//        JsonNode seatsNode = getSeats(json);
-//        List<SeatRecord> seatRecords = new ArrayList<>();
-//        for (JsonNode seatNode: seatsNode) {
-//            seatRecords.add(createSeatFromNode(seatNode));
-//        }
-//        System.out.println("==== AIRCRAFT ====");
-//        System.out.println(aircraftRecord);
-//
-//        System.out.println("==== SEAT CLASSES ====");
-//        seatClassRecords.forEach(System.out::println);
-//
-//        System.out.println("==== SEATS ====");
-//        seatRecords.forEach(System.out::println);
+        System.out.println("Processed: " + filePath);
     }
 
     /**
@@ -246,5 +244,143 @@ public class DataLoader implements CommandLineRunner {
         return Optional.ofNullable(json)
                 .map(j -> j.get("seats"))
                 .orElseThrow(() -> new IllegalArgumentException("Invalid JSON Object."));
+    }
+
+
+    private void processFlightsFile(String filePath) {
+        JsonNode json;
+        try (InputStream inputStream = new ClassPathResource(filePath).getInputStream()) {
+            json = objectMapper.readTree(inputStream);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to read JSON data", e);
+        }
+
+        // 1) Parse arrays
+        List<AirlineRecord> airlineRecords = parseAirlines(json.get("airlines"));
+        List<AirportRecord> airportRecords = parseAirports(json.get("airports"));
+        List<FlightRecord> flightRecords = parseFlights(json.get("flights"));
+
+        // 2) Insert airlines
+        Map<String, Airline> airlineMap = insertAirlines(airlineRecords);
+
+        // 3) Insert airport
+        Map<String, Airport> airportMap = insertAirports(airportRecords);
+
+        // 4) Insert flights
+        insertFlights(flightRecords, airlineMap, airportMap);
+    }
+
+    private void insertFlights(List<FlightRecord> flightRecords, Map<String, Airline> airlineMap, Map<String, Airport> airportMap) {
+        for (FlightRecord fr : flightRecords) {
+            Airline airline = airlineMap.get(fr.airlineIATACode());
+            if (airline == null) {
+                throw new RuntimeException("No airline found with code: " + fr.airlineIATACode());
+            }
+
+            Airport departureAirport = airportMap.get(fr.departureAirportCode());
+            if (departureAirport == null) {
+                throw new RuntimeException("No departure airport found with code: " + fr.departureAirportCode());
+            }
+
+            Airport arrivalAirport = airportMap.get(fr.arrivalAirportCode());
+            if (arrivalAirport == null) {
+                throw new RuntimeException("No arrival airport found with code: " + fr.arrivalAirportCode());
+            }
+
+            Aircraft aircraft = aircraftRepository.findByAircraftModel(fr.aircraftModel())
+                    .orElseThrow(() -> new RuntimeException("No aircraft found with name: " + fr.aircraftModel()));
+
+            Flight flight = new Flight();
+            flight.setFlightNumber(fr.flightNumber());
+            flight.setAirline(airline);
+            flight.setDepartureAirport(departureAirport);
+            flight.setArrivalAirport(arrivalAirport);
+            flight.setAircraft(aircraft);
+            flight.setBasePrice(fr.basePrice());
+            flight.setDepartureTime(LocalDateTime.parse(fr.departureTime()));
+            flight.setArrivalTime(LocalDateTime.parse(fr.arrivalTime()));
+            flightRepository.save(flight);
+        }
+    }
+
+    private Map<String, Airport> insertAirports(List<AirportRecord> airportRecords) {
+        Map<String, Airport> map = new HashMap<>();
+        for (AirportRecord record : airportRecords) {
+            Optional<Airport> airport = airportRepository.findByAirportCode(record.airportCode());
+            if (airport.isPresent()) {
+                map.put(record.airportCode(), airport.get());
+                continue;
+            }
+
+            Airport ar = new Airport();
+            ar.setAirportCode(record.airportCode());
+            ar.setAirportName(record.airportName());
+            ar.setAirportCity(record.airportCity());
+            ar.setAirportCountry(record.airportCountry());
+
+            Airport saved = airportRepository.save(ar);
+            map.put(record.airportCode(), saved);
+        }
+        return map;
+    }
+
+    private Map<String, Airline> insertAirlines(List<AirlineRecord> airlineRecords) {
+        Map<String, Airline> map = new HashMap<>();
+        for (AirlineRecord record : airlineRecords) {
+            Optional<Airline> airline = airlineRepository.findByAirlineIATACode(record.airlineIATACode());
+            if (airline.isPresent()) {
+                map.put(record.airlineIATACode(),airline.get());
+                continue;
+            }
+
+            Airline ar = new Airline();
+            ar.setAirlineName(record.airlineName());
+            ar.setAirlineIATACode(record.airlineIATACode());
+
+            Airline saved = airlineRepository.save(ar);
+            map.put(record.airlineIATACode(), saved);
+        }
+        return map;
+    }
+
+    private List<FlightRecord> parseFlights(JsonNode node) {
+        List<FlightRecord> flightRecords = new ArrayList<>();
+        for (JsonNode n : node) {
+            flightRecords.add(new FlightRecord(
+                    n.get("flightNumber").asText(),
+                    n.get("airlineIATACode").asText(),
+                    n.get("departureAirport").asText(),
+                    n.get("arrivalAirport").asText(),
+                    n.get("aircraftModel").asText(),
+                    n.get("basePrice").asDouble(),
+                    n.get("departureTime").asText(),
+                    n.get("arrivalTime").asText()
+            ));
+        }
+        return flightRecords;
+    }
+
+    private List<AirportRecord> parseAirports(JsonNode node) {
+        List<AirportRecord> airportRecords = new ArrayList<>();
+        for (JsonNode n : node) {
+            airportRecords.add(new AirportRecord(
+                    n.get("airportCode").asText(),
+                    n.get("airportName").asText(),
+                    n.get("airportCity").asText(),
+                    n.get("airportCountry").asText()
+            ));
+        }
+        return airportRecords;
+    }
+
+    private List<AirlineRecord> parseAirlines(JsonNode node) {
+        List<AirlineRecord> airlineRecords = new ArrayList<>();
+        for (JsonNode n : node) {
+            airlineRecords.add(new AirlineRecord(
+                    n.get("airlineName").asText(),
+                    n.get("airlineIATACode").asText()
+            ));
+        }
+        return airlineRecords;
     }
 }

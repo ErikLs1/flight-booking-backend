@@ -75,9 +75,9 @@ public class FlightServiceImpl implements FlightService {
                 : LocalDateTime.of(9999, 12, 31, 23, 59);
 
         List<Flight> flights = flightRepository.filterFlights(
-                filter.getDepartureAirportId(),
-                filter.getArrivalAirportId(),
-                filter.getAirlineId(),
+                filter.getDepartureCity(),
+                filter.getArrivalCity(),
+                filter.getAirlineName(),
                 filter.getMaxPrice(),
                 depStart,
                 depEnd

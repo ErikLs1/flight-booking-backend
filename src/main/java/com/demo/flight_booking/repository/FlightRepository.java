@@ -27,11 +27,11 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     SELECT f
     FROM Flight f
     WHERE
-        (:depId IS NULL OR f.departureAirport.airportId = :depId)
+        (:depCity IS NULL OR f.departureAirport.airportCity = :depCity)
     AND
-        (:arrId IS NULL OR f.arrivalAirport.airportId = :arrId)
+        (:arrCity IS NULL OR f.arrivalAirport.airportCity = :arrCity)
     AND
-        (:airlineId IS NULL OR f.airline.airlineId = :airlineId)
+        (:airlineName IS NULL OR f.airline.airlineName = :airlineName)
     AND
         (:maxPrice IS NULL OR f.basePrice <= :maxPrice)
     AND
@@ -40,9 +40,9 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
         (f.departureTime <= :depEnd)
     """)
     List<Flight> filterFlights(
-        @Param("depId") Long departureAirportId,
-        @Param("arrId") Long arrivalAirportId,
-        @Param("airlineId") Long airlineId,
+        @Param("depCity") String departureCity,
+        @Param("arrCity") String arrivalCity,
+        @Param("airlineName") String airlineName,
         @Param("maxPrice") Double maxPrice,
         @Param("depStart") LocalDateTime departureStartTime,
         @Param("depEnd") LocalDateTime departureEndTime

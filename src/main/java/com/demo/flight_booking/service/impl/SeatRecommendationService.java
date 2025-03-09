@@ -48,7 +48,6 @@ public class SeatRecommendationService {
         // If adjacency is not required
         if (!Boolean.TRUE.equals(filter.getAdjacentPreferred())) {
             return matchingSeats.stream()
-                    .limit(filter.getPassengerCount())
                     .map(seatMapper::toDTO)
                     .toList();
         }
@@ -94,16 +93,17 @@ public class SeatRecommendationService {
         Map<Integer, List<Seat>> seatByRow = seats.stream()
                 .collect(Collectors.groupingBy(Seat::getRowNumber));
 
+        List<Seat> result = new ArrayList<>();
+
         for (Map.Entry<Integer, List<Seat>> entry : seatByRow.entrySet()) {
             List<Seat> rowSeats = entry.getValue();
             if (rowSeats.size() >= seatsNeeded) {
-                return rowSeats.stream()
-                        .limit(seatsNeeded)
-                        .map(seatMapper::toDTO)
-                        .toList();
+                result.addAll(rowSeats);
             }
         }
 
-        return Collections.emptyList();
+        return result.stream()
+                .map(seatMapper::toDTO)
+                .toList();
     }
 }

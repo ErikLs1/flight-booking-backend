@@ -1,0 +1,1400 @@
+{
+  "airlines": [
+    {
+      "airlineName": "American Airlines",
+      "airlineIATACode": "AA"
+    },
+    {
+      "airlineName": "British Airways",
+      "airlineIATACode": "BA"
+    },
+    {
+      "airlineName": "Croatia Airlines",
+      "airlineIATACode": "OU"
+    },
+    {
+      "airlineName": "Czech Airlines",
+      "airlineIATACode": "OK"
+    },
+    {
+      "airlineName": "Emirates",
+      "airlineIATACode": "EK"
+    },
+    {
+      "airlineName": "Eurowings",
+      "airlineIATACode": "EW"
+    },
+    {
+      "airlineName": "Finnair",
+      "airlineIATACode": "AY"
+    },
+    {
+      "airlineName": "Hong Kong Airlines",
+      "airlineIATACode": "HX"
+    },
+    {
+      "airlineName": "Hawaiian Airlines",
+      "airlineIATACode": "HA"
+    },
+    {
+      "airlineName": "Iceland Airlines",
+      "airlineIATACode": "FI"
+    },
+    {
+      "airlineName": "Lufthansa",
+      "airlineIATACode": "LH"
+    },
+    {
+      "airlineName": "Luxair",
+      "airlineIATACode": "LG"
+    },
+    {
+      "airlineName": "Qatar Airways",
+      "airlineIATACode": "QR"
+    },
+    {
+      "airlineName": "Ryanair",
+      "airlineIATACode": "FR"
+    },
+    {
+      "airlineName": "SAS",
+      "airlineIATACode": "SK"
+    },
+    {
+      "airlineName": "Singapore Airlines",
+      "airlineIATACode": "SQ"
+    },
+    {
+      "airlineName": "SWISS",
+      "airlineIATACode": "LX"
+    },
+    {
+      "airlineName": "Turkish Airlines",
+      "airlineIATACode": "TK"
+    },
+    {
+      "airlineName": "Wizzair",
+      "airlineIATACode": "W6"
+    },
+    {
+      "airlineName": "Japan Airlines",
+      "airlineIATACode": "JL"
+    }
+  ],
+  "airports": [
+    {
+      "airportCode": "LHR",
+      "airportName": "Heathrow Airport",
+      "airportCity": "London",
+      "airportCountry": "United Kingdom"
+    },
+    {
+      "airportCode": "CDG",
+      "airportName": "Charles de Gaulle International Airport",
+      "airportCity": "Paris",
+      "airportCountry": "France"
+    },
+    {
+      "airportCode": "AMS",
+      "airportName": "Amsterdam Airport Schiphol",
+      "airportCity": "Amsterdam",
+      "airportCountry": "Netherlands"
+    },
+    {
+      "airportCode": "FRA",
+      "airportName": "Frankfurt am Main International Airport",
+      "airportCity": "Frankfurt",
+      "airportCountry": "Germany"
+    },
+    {
+      "airportCode": "IST",
+      "airportName": "Istanbul Ataturk Airport",
+      "airportCity": "Istanbul",
+      "airportCountry": "Turkey"
+    },
+    {
+      "airportCode": "MAD",
+      "airportName": "Adolfo Suarez Madrid-Barajas Airport",
+      "airportCity": "Madrid",
+      "airportCountry": "Spain"
+    },
+    {
+      "airportCode": "BCN",
+      "airportName": "Barcelona-El Prat Airport",
+      "airportCity": "Barcelona",
+      "airportCountry": "Spain"
+    },
+    {
+      "airportCode": "MUC",
+      "airportName": "Munich Airport",
+      "airportCity": "Munich",
+      "airportCountry": "Germany"
+    },
+    {
+      "airportCode": "FCO",
+      "airportName": "Leonardo da Vinci-Fiumicino Airport",
+      "airportCity": "Rome",
+      "airportCountry": "Italy"
+    },
+    {
+      "airportCode": "DUB",
+      "airportName": "Dublin Airport",
+      "airportCity": "Dublin",
+      "airportCountry": "Ireland"
+    },
+    {
+      "airportCode": "ZRH",
+      "airportName": "Zurich Airport",
+      "airportCity": "Zurich",
+      "airportCountry": "Switzerland"
+    },
+    {
+      "airportCode": "MAN",
+      "airportName": "Manchester Airport",
+      "airportCity": "Manchester",
+      "airportCountry": "United Kingdom"
+    },
+    {
+      "airportCode": "LIS",
+      "airportName": "Lisbon Portela Airport",
+      "airportCity": "Lisbon",
+      "airportCountry": "Portugal"
+    },
+    {
+      "airportCode": "ARN",
+      "airportName": "Stockholm Arlanda Airport",
+      "airportCity": "Stockholm",
+      "airportCountry": "Sweden"
+    },
+    {
+      "airportCode": "BRU",
+      "airportName": "Brussels Airport",
+      "airportCity": "Brussels",
+      "airportCountry": "Belgium"
+    },
+    {
+      "airportCode": "VIE",
+      "airportName": "Vienna International Airport",
+      "airportCity": "Vienna",
+      "airportCountry": "Austria"
+    },
+    {
+      "airportCode": "MXP",
+      "airportName": "Milan-Malpensa Airport",
+      "airportCity": "Milano",
+      "airportCountry": "Italy"
+    },
+    {
+      "airportCode": "ATH",
+      "airportName": "Athens International Airport",
+      "airportCity": "Athens",
+      "airportCountry": "Greece"
+    },
+    {
+      "airportCode": "TXL",
+      "airportName": "Berlin-Tegel International Airport",
+      "airportCity": "Berlin",
+      "airportCountry": "Germany"
+    },
+    {
+      "airportCode": "HEL",
+      "airportName": "Helsinki Airport",
+      "airportCity": "Helsinki",
+      "airportCountry": "Finland"
+    },
+    {
+      "airportCode": "GVA",
+      "airportName": "Geneva Airport",
+      "airportCity": "Geneva",
+      "airportCountry": "Switzerland"
+    },
+    {
+      "airportCode": "PRG",
+      "airportName": "Vaclav Havel Airport Prague",
+      "airportCity": "Prague",
+      "airportCountry": "Czech Republic"
+    },
+    {
+      "airportCode": "BUD",
+      "airportName": "Budapest Ferenc Liszt International Airport",
+      "airportCity": "Budapest",
+      "airportCountry": "Hungary"
+    },
+    {
+      "airportCode": "OTP",
+      "airportName": "Henri Conanda International Airport",
+      "airportCity": "Bucharest",
+      "airportCountry": "Romania"
+    },
+    {
+      "airportCode": "MLA",
+      "airportName": "Malta International Airport",
+      "airportCity": "Malta",
+      "airportCountry": "Malta"
+    },
+    {
+      "airportCode": "RIX",
+      "airportName": "Riga International Airport",
+      "airportCity": "Riga",
+      "airportCountry": "Latvia"
+    },
+    {
+      "airportCode": "ATL",
+      "airportName": "Hartsfield-Jackson Atlanta International Airport",
+      "airportCity": "Atlanta",
+      "airportCountry": "United States"
+    },
+    {
+      "airportCode": "PEK",
+      "airportName": "Beijing Capital International Airport",
+      "airportCity": "Beijing",
+      "airportCountry": "China"
+    },
+    {
+      "airportCode": "DXB",
+      "airportName": "Dubai International Airport",
+      "airportCity": "Dubai",
+      "airportCountry": "United Arab Emirates"
+    },
+    {
+      "airportCode": "LAX",
+      "airportName": "Los Angeles International Airport",
+      "airportCity": "Los Angeles",
+      "airportCountry": "United States"
+    },
+    {
+      "airportCode": "ORD",
+      "airportName": "O'Hare International Airport",
+      "airportCity": "Chicago",
+      "airportCountry": "United States"
+    },
+    {
+      "airportCode": "HND",
+      "airportName": "Haneda Airport",
+      "airportCity": "Tokyo",
+      "airportCountry": "Japan"
+    },
+    {
+      "airportCode": "HKG",
+      "airportName": "Hong Kong International Airport",
+      "airportCity": "Hong Kong",
+      "airportCountry": "Hong Kong"
+    },
+    {
+      "airportCode": "PVG",
+      "airportName": "Shanghai Pudong International Airport",
+      "airportCity": "Shanghai",
+      "airportCountry": "China"
+    },
+    {
+      "airportCode": "DEL",
+      "airportName": "Indira Gandhi International Airport",
+      "airportCity": "Delhi",
+      "airportCountry": "India"
+    },
+    {
+      "airportCode": "CGK",
+      "airportName": "Soekarna-Hatta International Airport",
+      "airportCity": "Jakarta",
+      "airportCountry": "Indonesia"
+    },
+    {
+      "airportCode": "SIN",
+      "airportName": "Singapore Changi Airport",
+      "airportCity": "Singapore",
+      "airportCountry": "Singapore"
+    },
+    {
+      "airportCode": "ICN",
+      "airportName": "Incheon International Airport",
+      "airportCity": "Seoul",
+      "airportCountry": "South Korea"
+    },
+    {
+      "airportCode": "BKK",
+      "airportName": "Suvarnabhumi Airport",
+      "airportCity": "Bangkok",
+      "airportCountry": "Thailand"
+    },
+    {
+      "airportCode": "JFK",
+      "airportName": "John F. Kennedy International Airport",
+      "airportCity": "New York",
+      "airportCountry": "United States"
+    },
+    {
+      "airportCode": "CTU",
+      "airportName": "Chengdu Shuangliu International Airport",
+      "airportCity": "Chengdu",
+      "airportCountry": "China"
+    },
+    {
+      "airportCode": "YYZ",
+      "airportName": "Toronto Pearson International Airport",
+      "airportCity": "Toronto",
+      "airportCountry": "Canada"
+    },
+    {
+      "airportCode": "TPE",
+      "airportName": "Taiwan Taoyuan International Airport",
+      "airportCity": "Taipei",
+      "airportCountry": "Taiwan"
+    },
+    {
+      "airportCode": "MEX",
+      "airportName": "Mexico City International Airport",
+      "airportCity": "Mexico City",
+      "airportCountry": "Mexico"
+    },
+    {
+      "airportCode": "SYD",
+      "airportName": "Sydney Airport",
+      "airportCity": "Sydney",
+      "airportCountry": "Australia"
+    },
+    {
+      "airportCode": "MNL",
+      "airportName": "Ninoy Aquino International Airport",
+      "airportCity": "Manila",
+      "airportCountry": "Philippines"
+    },
+    {
+      "airportCode": "NRT",
+      "airportName": "Narita International Airport",
+      "airportCity": "Tokyo",
+      "airportCountry": "Japan"
+    },
+    {
+      "airportCode": "DOH",
+      "airportName": "Hamad International Airport",
+      "airportCity": "Doha",
+      "airportCountry": "Qatar"
+    },
+    {
+      "airportCode": "JED",
+      "airportName": "King Abdulaziz International Airport",
+      "airportCity": "Jeddah",
+      "airportCountry": "Saudi Arabia"
+    },
+    {
+      "airportCode": "MEL",
+      "airportName": "Melbourne Airport",
+      "airportCity": "Melbourne",
+      "airportCountry": "Australia"
+    },
+    {
+      "airportCode": "BOG",
+      "airportName": "El Dorado International Airport",
+      "airportCity": "Bogota",
+      "airportCountry": "Colombia"
+    },
+    {
+      "airportCode": "OSL",
+      "airportName": "Oslo Airport, Gardermoen",
+      "airportCity": "Oslo",
+      "airportCountry": "Norway"
+    }
+  ],
+  "flights": [
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA877",
+      "departureAirport": "MAD",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-23T10:10:00",
+      "arrivalTime": "2025-03-23T17:49:00",
+      "basePrice": 600.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ909",
+      "departureAirport": "FRA",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-13T18:49:00",
+      "arrivalTime": "2025-03-13T19:17:00",
+      "basePrice": 900.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA343",
+      "departureAirport": "IST",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-16T11:51:00",
+      "arrivalTime": "2025-03-16T21:24:00",
+      "basePrice": 200.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK898",
+      "departureAirport": "MUC",
+      "arrivalAirport": "IST",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-18T14:55:00",
+      "arrivalTime": "2025-03-18T23:46:00",
+      "basePrice": 600.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK718",
+      "departureAirport": "FCO",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-03-23T02:49:00",
+      "arrivalTime": "2025-03-23T08:09:00",
+      "basePrice": 500.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ101",
+      "departureAirport": "LHR",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-15T00:09:00",
+      "arrivalTime": "2025-03-15T06:13:00",
+      "basePrice": 700.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA941",
+      "departureAirport": "CDG",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-13T21:41:00",
+      "arrivalTime": "2025-03-14T06:27:00",
+      "basePrice": 200.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK480",
+      "departureAirport": "LHR",
+      "arrivalAirport": "IST",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-21T02:27:00",
+      "arrivalTime": "2025-03-21T09:05:00",
+      "basePrice": 800.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH231",
+      "departureAirport": "CDG",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-27T22:09:00",
+      "arrivalTime": "2025-03-28T03:45:00",
+      "basePrice": 800.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA534",
+      "departureAirport": "DUB",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-04-03T09:54:00",
+      "arrivalTime": "2025-04-03T21:16:00",
+      "basePrice": 650.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK151",
+      "departureAirport": "LHR",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-04-08T13:54:00",
+      "arrivalTime": "2025-04-08T23:35:00",
+      "basePrice": 150.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA549",
+      "departureAirport": "IST",
+      "arrivalAirport": "CDG",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-16T07:42:00",
+      "arrivalTime": "2025-03-16T13:30:00",
+      "basePrice": 100.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA316",
+      "departureAirport": "CDG",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-27T05:18:00",
+      "arrivalTime": "2025-03-27T13:25:00",
+      "basePrice": 100.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK568",
+      "departureAirport": "BCN",
+      "arrivalAirport": "MAD",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-21T19:40:00",
+      "arrivalTime": "2025-03-22T03:14:00",
+      "basePrice": 650.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ568",
+      "departureAirport": "DUB",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-13T14:42:00",
+      "arrivalTime": "2025-03-13T20:52:00",
+      "basePrice": 100.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ364",
+      "departureAirport": "AMS",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-04-04T10:43:00",
+      "arrivalTime": "2025-04-04T12:30:00",
+      "basePrice": 150.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK591",
+      "departureAirport": "MUC",
+      "arrivalAirport": "MAD",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-04-02T04:06:00",
+      "arrivalTime": "2025-04-02T15:34:00",
+      "basePrice": 530.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK791",
+      "departureAirport": "FRA",
+      "arrivalAirport": "MAD",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-04-07T09:38:00",
+      "arrivalTime": "2025-04-07T11:38:00",
+      "basePrice": 913.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ135",
+      "departureAirport": "CDG",
+      "arrivalAirport": "IST",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-16T17:59:00",
+      "arrivalTime": "2025-03-16T23:36:00",
+      "basePrice": 839.25
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA169",
+      "departureAirport": "CDG",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-04-01T02:56:00",
+      "arrivalTime": "2025-04-01T09:40:00",
+      "basePrice": 720.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK369",
+      "departureAirport": "MAD",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-27T16:22:00",
+      "arrivalTime": "2025-03-28T00:53:00",
+      "basePrice": 275.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH352",
+      "departureAirport": "CDG",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-16T18:08:00",
+      "arrivalTime": "2025-03-16T20:07:00",
+      "basePrice": 900.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ421",
+      "departureAirport": "MUC",
+      "arrivalAirport": "CDG",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-20T14:08:00",
+      "arrivalTime": "2025-03-20T20:24:00",
+      "basePrice": 925.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ370",
+      "departureAirport": "MAD",
+      "arrivalAirport": "IST",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-25T18:38:00",
+      "arrivalTime": "2025-03-26T04:38:00",
+      "basePrice": 230.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK652",
+      "departureAirport": "BCN",
+      "arrivalAirport": "CDG",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-04-08T13:51:00",
+      "arrivalTime": "2025-04-08T22:33:00",
+      "basePrice": 750.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK369",
+      "departureAirport": "AMS",
+      "arrivalAirport": "CDG",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-20T00:34:00",
+      "arrivalTime": "2025-03-20T06:05:00",
+      "basePrice": 400.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK977",
+      "departureAirport": "MUC",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-25T09:38:00",
+      "arrivalTime": "2025-03-25T14:11:00",
+      "basePrice": 475.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA223",
+      "departureAirport": "AMS",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-04-04T03:36:00",
+      "arrivalTime": "2025-04-04T11:56:00",
+      "basePrice": 450.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK162",
+      "departureAirport": "AMS",
+      "arrivalAirport": "IST",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-28T15:53:00",
+      "arrivalTime": "2025-03-28T16:30:00",
+      "basePrice": 475.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK968",
+      "departureAirport": "DUB",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-29T21:36:00",
+      "arrivalTime": "2025-03-30T03:03:00",
+      "basePrice": 450.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK626",
+      "departureAirport": "CDG",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-29T21:51:00",
+      "arrivalTime": "2025-03-30T01:39:00",
+      "basePrice": 350.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK986",
+      "departureAirport": "MUC",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-28T21:29:00",
+      "arrivalTime": "2025-03-29T07:40:00",
+      "basePrice": 225.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK829",
+      "departureAirport": "CDG",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-24T20:34:00",
+      "arrivalTime": "2025-03-25T03:03:00",
+      "basePrice": 572.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK782",
+      "departureAirport": "LHR",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-22T17:31:00",
+      "arrivalTime": "2025-03-23T00:33:00",
+      "basePrice": 930.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH761",
+      "departureAirport": "MUC",
+      "arrivalAirport": "IST",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-04-04T11:37:00",
+      "arrivalTime": "2025-04-04T17:50:00",
+      "basePrice": 875.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ764",
+      "departureAirport": "FCO",
+      "arrivalAirport": "CDG",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-23T14:45:00",
+      "arrivalTime": "2025-03-24T01:03:00",
+      "basePrice": 300.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA414",
+      "departureAirport": "AMS",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-04-08T18:00:00",
+      "arrivalTime": "2025-04-09T02:28:00",
+      "basePrice": 515.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ796",
+      "departureAirport": "MUC",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-20T22:03:00",
+      "arrivalTime": "2025-03-21T10:21:00",
+      "basePrice": 285.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ172",
+      "departureAirport": "FCO",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-18T08:52:00",
+      "arrivalTime": "2025-03-18T11:37:00",
+      "basePrice": 660.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ593",
+      "departureAirport": "AMS",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-20T04:29:00",
+      "arrivalTime": "2025-03-20T16:51:00",
+      "basePrice": 375.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH499",
+      "departureAirport": "BCN",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-13T02:55:00",
+      "arrivalTime": "2025-03-13T09:05:00",
+      "basePrice": 675.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA485",
+      "departureAirport": "AMS",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-29T04:38:00",
+      "arrivalTime": "2025-03-29T06:38:00",
+      "basePrice": 940.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK278",
+      "departureAirport": "FRA",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-03-26T12:17:00",
+      "arrivalTime": "2025-03-26T18:00:00",
+      "basePrice": 435.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH392",
+      "departureAirport": "CDG",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-16T04:17:00",
+      "arrivalTime": "2025-03-16T15:12:00",
+      "basePrice": 325.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA477",
+      "departureAirport": "IST",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-04-03T10:56:00",
+      "arrivalTime": "2025-04-03T14:43:00",
+      "basePrice": 175.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ640",
+      "departureAirport": "DUB",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-03-25T08:59:00",
+      "arrivalTime": "2025-03-25T10:01:00",
+      "basePrice": 850.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK780",
+      "departureAirport": "DUB",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-04-06T08:32:00",
+      "arrivalTime": "2025-04-06T19:12:00",
+      "basePrice": 800.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH884",
+      "departureAirport": "IST",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-04-05T13:17:00",
+      "arrivalTime": "2025-04-05T22:46:00",
+      "basePrice": 750.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK126",
+      "departureAirport": "DUB",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-21T12:47:00",
+      "arrivalTime": "2025-03-21T19:15:00",
+      "basePrice": 475.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA653",
+      "departureAirport": "BCN",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-18T08:49:00",
+      "arrivalTime": "2025-03-18T13:20:00",
+      "basePrice": 500.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK915",
+      "departureAirport": "BCN",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-20T20:56:00",
+      "arrivalTime": "2025-03-21T08:35:00",
+      "basePrice": 250.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH986",
+      "departureAirport": "AMS",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-31T18:31:00",
+      "arrivalTime": "2025-03-31T22:32:00",
+      "basePrice": 450.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK968",
+      "departureAirport": "MAD",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-04-07T00:55:00",
+      "arrivalTime": "2025-04-07T10:51:00",
+      "basePrice": 750.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA722",
+      "departureAirport": "AMS",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-12T06:39:00",
+      "arrivalTime": "2025-03-12T12:28:00",
+      "basePrice": 250.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA731",
+      "departureAirport": "BCN",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-03-26T00:38:00",
+      "arrivalTime": "2025-03-26T08:38:00",
+      "basePrice": 350.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK839",
+      "departureAirport": "MUC",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-03-12T23:37:00",
+      "arrivalTime": "2025-03-13T10:06:00",
+      "basePrice": 420.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA136",
+      "departureAirport": "MAD",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-04-02T07:06:00",
+      "arrivalTime": "2025-04-02T08:53:00",
+      "basePrice": 750.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK800",
+      "departureAirport": "IST",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-26T21:09:00",
+      "arrivalTime": "2025-03-27T06:56:00",
+      "basePrice": 400.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK135",
+      "departureAirport": "MUC",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-15T00:07:00",
+      "arrivalTime": "2025-03-15T07:56:00",
+      "basePrice": 475.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA853",
+      "departureAirport": "DUB",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-25T07:19:00",
+      "arrivalTime": "2025-03-25T12:53:00",
+      "basePrice": 300.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA526",
+      "departureAirport": "MUC",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-04-01T11:55:00",
+      "arrivalTime": "2025-04-01T14:14:00",
+      "basePrice": 975.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK446",
+      "departureAirport": "MAD",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-04-01T23:43:00",
+      "arrivalTime": "2025-04-02T06:12:00",
+      "basePrice": 885.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK479",
+      "departureAirport": "MUC",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-04-09T05:02:00",
+      "arrivalTime": "2025-04-09T15:28:00",
+      "basePrice": 225.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH794",
+      "departureAirport": "DUB",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-27T23:34:00",
+      "arrivalTime": "2025-03-28T02:26:00",
+      "basePrice": 285.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK984",
+      "departureAirport": "IST",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-04-01T02:39:00",
+      "arrivalTime": "2025-04-01T09:01:00",
+      "basePrice": 775.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH314",
+      "departureAirport": "DUB",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-18T07:53:00",
+      "arrivalTime": "2025-03-18T11:59:00",
+      "basePrice": 600.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK780",
+      "departureAirport": "LHR",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-04-04T12:51:00",
+      "arrivalTime": "2025-04-04T17:05:00",
+      "basePrice": 100.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA294",
+      "departureAirport": "LHR",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-03-18T05:13:00",
+      "arrivalTime": "2025-03-18T14:21:00",
+      "basePrice": 475.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA498",
+      "departureAirport": "AMS",
+      "arrivalAirport": "MAD",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-20T06:08:00",
+      "arrivalTime": "2025-03-20T14:39:00",
+      "basePrice": 200.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK687",
+      "departureAirport": "MAD",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-04-04T01:44:00",
+      "arrivalTime": "2025-04-04T13:58:00",
+      "basePrice": 100.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA501",
+      "departureAirport": "MAD",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-30T21:37:00",
+      "arrivalTime": "2025-03-31T08:32:00",
+      "basePrice": 950.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK804",
+      "departureAirport": "CDG",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-04-02T23:47:00",
+      "arrivalTime": "2025-04-03T09:09:00",
+      "basePrice": 275.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK292",
+      "departureAirport": "AMS",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-04-07T19:21:00",
+      "arrivalTime": "2025-04-07T22:22:00",
+      "basePrice": 750.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ949",
+      "departureAirport": "IST",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-25T16:23:00",
+      "arrivalTime": "2025-03-25T21:16:00",
+      "basePrice": 675.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH434",
+      "departureAirport": "BCN",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-04-03T06:12:00",
+      "arrivalTime": "2025-04-03T12:06:00",
+      "basePrice": 500.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ139",
+      "departureAirport": "FRA",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-04-07T11:33:00",
+      "arrivalTime": "2025-04-07T21:24:00",
+      "basePrice": 950.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA150",
+      "departureAirport": "IST",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-04-05T00:12:00",
+      "arrivalTime": "2025-04-05T10:24:00",
+      "basePrice": 700.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK190",
+      "departureAirport": "MUC",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-28T08:38:00",
+      "arrivalTime": "2025-03-28T20:15:00",
+      "basePrice": 525.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA770",
+      "departureAirport": "AMS",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-04-02T00:10:00",
+      "arrivalTime": "2025-04-02T12:03:00",
+      "basePrice": 350.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK441",
+      "departureAirport": "AMS",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-23T04:32:00",
+      "arrivalTime": "2025-03-23T11:35:00",
+      "basePrice": 975.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK367",
+      "departureAirport": "MUC",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-26T02:31:00",
+      "arrivalTime": "2025-03-26T08:12:00",
+      "basePrice": 830.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK830",
+      "departureAirport": "FCO",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-25T03:08:00",
+      "arrivalTime": "2025-03-25T14:24:00",
+      "basePrice": 280.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK566",
+      "departureAirport": "LHR",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Embraer 192",
+      "departureTime": "2025-04-01T17:25:00",
+      "arrivalTime": "2025-04-02T05:03:00",
+      "basePrice": 375.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA553",
+      "departureAirport": "DUB",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-15T16:49:00",
+      "arrivalTime": "2025-03-16T02:09:00",
+      "basePrice": 960.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ550",
+      "departureAirport": "BCN",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-26T19:52:00",
+      "arrivalTime": "2025-03-26T20:09:00",
+      "basePrice": 130.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK490",
+      "departureAirport": "DUB",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-03-10T17:48:00",
+      "arrivalTime": "2025-03-10T18:34:00",
+      "basePrice": 820.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK617",
+      "departureAirport": "IST",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-29T08:24:00",
+      "arrivalTime": "2025-03-29T17:56:00",
+      "basePrice": 545.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA826",
+      "departureAirport": "IST",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-22T20:41:00",
+      "arrivalTime": "2025-03-23T04:49:00",
+      "basePrice": 505.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ376",
+      "departureAirport": "IST",
+      "arrivalAirport": "FCO",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-27T09:48:00",
+      "arrivalTime": "2025-03-27T12:12:00",
+      "basePrice": 700.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA209",
+      "departureAirport": "FCO",
+      "arrivalAirport": "LHR",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-29T02:26:00",
+      "arrivalTime": "2025-03-29T06:01:00",
+      "basePrice": 300.0
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA479",
+      "departureAirport": "AMS",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-04-03T19:07:00",
+      "arrivalTime": "2025-04-04T01:29:00",
+      "basePrice": 900.00
+    },
+    {
+      "airlineIATACode": "AA",
+      "flightNumber": "AA409",
+      "departureAirport": "IST",
+      "arrivalAirport": "MUC",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-04-08T05:56:00",
+      "arrivalTime": "2025-04-08T17:07:00",
+      "basePrice": 500.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH654",
+      "departureAirport": "MUC",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-12T10:00:00",
+      "arrivalTime": "2025-03-12T18:18:00",
+      "basePrice": 322.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ632",
+      "departureAirport": "MAD",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Embraer 191",
+      "departureTime": "2025-03-30T03:38:00",
+      "arrivalTime": "2025-03-30T07:38:00",
+      "basePrice": 760.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ783",
+      "departureAirport": "LHR",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-18T09:59:00",
+      "arrivalTime": "2025-03-18T16:52:00",
+      "basePrice": 617.00
+    },
+    {
+      "airlineIATACode": "BA",
+      "flightNumber": "BA586",
+      "departureAirport": "MUC",
+      "arrivalAirport": "AMS",
+      "aircraftModel": "Embraer 190",
+      "departureTime": "2025-03-23T21:50:00",
+      "arrivalTime": "2025-03-24T05:16:00",
+      "basePrice": 561.00
+    },
+    {
+      "airlineIATACode": "LH",
+      "flightNumber": "LH668",
+      "departureAirport": "AMS",
+      "arrivalAirport": "FRA",
+      "aircraftModel": "Airbus A322",
+      "departureTime": "2025-04-08T11:42:00",
+      "arrivalTime": "2025-04-08T12:11:00",
+      "basePrice": 980.00
+    },
+    {
+      "airlineIATACode": "SQ",
+      "flightNumber": "SQ164",
+      "departureAirport": "BCN",
+      "arrivalAirport": "DUB",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-03-22T07:37:00",
+      "arrivalTime": "2025-03-22T13:07:00",
+      "basePrice": 657.00
+    },
+    {
+      "airlineIATACode": "TK",
+      "flightNumber": "TK102",
+      "departureAirport": "FRA",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Airbus A321",
+      "departureTime": "2025-03-14T15:40:00",
+      "arrivalTime": "2025-03-15T01:22:00",
+      "basePrice": 495.00
+    },
+    {
+      "airlineIATACode": "EK",
+      "flightNumber": "EK243",
+      "departureAirport": "FCO",
+      "arrivalAirport": "BCN",
+      "aircraftModel": "Airbus A320",
+      "departureTime": "2025-04-03T16:01:00",
+      "arrivalTime": "2025-04-04T03:36:00",
+      "basePrice": 650.00
+    }
+  ]
+}

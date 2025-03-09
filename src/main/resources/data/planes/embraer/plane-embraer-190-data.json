@@ -1,16 +1,16 @@
 {
   "aircraft": {
-    "aircraftModel": "Finnair Airbus A320",
-    "aircraftTotalCapacity": 174,
-    "aircraftEconomySeats": 126,
+    "aircraftModel": "Embraer 190",
+    "aircraftTotalCapacity": 100,
+    "aircraftEconomySeats": 68,
     "aircraftPremiumSeats": 0,
-    "aircraftBusinessSeats": 48,
+    "aircraftBusinessSeats": 32,
     "aircraftFirstClassSeats": 0
   },
   "seatClasses": [
     {
       "seatClassName": "BUSINESS",
-      "basePrice": 300.0
+      "basePrice": 200.0
     },
     {
       "seatClassName": "ECONOMY",
@@ -24,16 +24,6 @@
       "seatLetter": "A",
       "seatClassName": "BUSINESS",
       "window": true,
-      "aisle": false,
-      "extraLegroom": true,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "1B",
-      "rowNumber": 1,
-      "seatLetter": "B",
-      "seatClassName": "BUSINESS",
-      "window": false,
       "aisle": false,
       "extraLegroom": true,
       "exitRow": true
@@ -59,16 +49,6 @@
       "exitRow": true
     },
     {
-      "seatNumber": "1E",
-      "rowNumber": 1,
-      "seatLetter": "E",
-      "seatClassName": "BUSINESS",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": true,
-      "exitRow": true
-    },
-    {
       "seatNumber": "1F",
       "rowNumber": 1,
       "seatLetter": "F",
@@ -84,16 +64,6 @@
       "seatLetter": "A",
       "seatClassName": "BUSINESS",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "2B",
-      "rowNumber": 2,
-      "seatLetter": "B",
-      "seatClassName": "BUSINESS",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": true
@@ -119,16 +89,6 @@
       "exitRow": true
     },
     {
-      "seatNumber": "2E",
-      "rowNumber": 2,
-      "seatLetter": "E",
-      "seatClassName": "BUSINESS",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
       "seatNumber": "2F",
       "rowNumber": 2,
       "seatLetter": "F",
@@ -144,16 +104,6 @@
       "seatLetter": "A",
       "seatClassName": "BUSINESS",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "3B",
-      "rowNumber": 3,
-      "seatLetter": "B",
-      "seatClassName": "BUSINESS",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -179,16 +129,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "3E",
-      "rowNumber": 3,
-      "seatLetter": "E",
-      "seatClassName": "BUSINESS",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "3F",
       "rowNumber": 3,
       "seatLetter": "F",
@@ -204,16 +144,6 @@
       "seatLetter": "A",
       "seatClassName": "BUSINESS",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "4B",
-      "rowNumber": 4,
-      "seatLetter": "B",
-      "seatClassName": "BUSINESS",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -239,16 +169,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "4E",
-      "rowNumber": 4,
-      "seatLetter": "E",
-      "seatClassName": "BUSINESS",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "4F",
       "rowNumber": 4,
       "seatLetter": "F",
@@ -264,16 +184,6 @@
       "seatLetter": "A",
       "seatClassName": "BUSINESS",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "5B",
-      "rowNumber": 5,
-      "seatLetter": "B",
-      "seatClassName": "BUSINESS",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -299,16 +209,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "5E",
-      "rowNumber": 5,
-      "seatLetter": "E",
-      "seatClassName": "BUSINESS",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "5F",
       "rowNumber": 5,
       "seatLetter": "F",
@@ -324,16 +224,6 @@
       "seatLetter": "A",
       "seatClassName": "BUSINESS",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "6B",
-      "rowNumber": 6,
-      "seatLetter": "B",
-      "seatClassName": "BUSINESS",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -359,16 +249,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "6E",
-      "rowNumber": 6,
-      "seatLetter": "E",
-      "seatClassName": "BUSINESS",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "6F",
       "rowNumber": 6,
       "seatLetter": "F",
@@ -384,16 +264,6 @@
       "seatLetter": "A",
       "seatClassName": "BUSINESS",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "7B",
-      "rowNumber": 7,
-      "seatLetter": "B",
-      "seatClassName": "BUSINESS",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -419,16 +289,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "7E",
-      "rowNumber": 7,
-      "seatLetter": "E",
-      "seatClassName": "BUSINESS",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "7F",
       "rowNumber": 7,
       "seatLetter": "F",
@@ -444,16 +304,6 @@
       "seatLetter": "A",
       "seatClassName": "BUSINESS",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "8B",
-      "rowNumber": 8,
-      "seatLetter": "B",
-      "seatClassName": "BUSINESS",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -479,16 +329,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "8E",
-      "rowNumber": 8,
-      "seatLetter": "E",
-      "seatClassName": "BUSINESS",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "8F",
       "rowNumber": 8,
       "seatLetter": "F",
@@ -504,16 +344,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "9B",
-      "rowNumber": 9,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": true
@@ -539,16 +369,6 @@
       "exitRow": true
     },
     {
-      "seatNumber": "9E",
-      "rowNumber": 9,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
       "seatNumber": "9F",
       "rowNumber": 9,
       "seatLetter": "F",
@@ -564,16 +384,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "10B",
-      "rowNumber": 10,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": true
@@ -599,16 +409,6 @@
       "exitRow": true
     },
     {
-      "seatNumber": "10E",
-      "rowNumber": 10,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
       "seatNumber": "10F",
       "rowNumber": 10,
       "seatLetter": "F",
@@ -624,16 +424,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": true,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "11B",
-      "rowNumber": 11,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": true,
       "exitRow": true
@@ -659,16 +449,6 @@
       "exitRow": true
     },
     {
-      "seatNumber": "11E",
-      "rowNumber": 11,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": true,
-      "exitRow": true
-    },
-    {
       "seatNumber": "11F",
       "rowNumber": 11,
       "seatLetter": "F",
@@ -685,17 +465,7 @@
       "seatClassName": "ECONOMY",
       "window":true,
       "aisle": false,
-      "extraLegroom": true,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "12B",
-      "rowNumber": 12,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": true,
+      "extraLegroom": false,
       "exitRow": true
     },
     {
@@ -705,7 +475,7 @@
       "seatClassName": "ECONOMY",
       "window": false,
       "aisle": true,
-      "extraLegroom": true,
+      "extraLegroom": false,
       "exitRow": true
     },
     {
@@ -715,17 +485,7 @@
       "seatClassName": "ECONOMY",
       "window": false,
       "aisle": true,
-      "extraLegroom": true,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "12E",
-      "rowNumber": 12,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": true,
+      "extraLegroom": false,
       "exitRow": true
     },
     {
@@ -735,7 +495,7 @@
       "seatClassName": "ECONOMY",
       "window": true,
       "aisle": false,
-      "extraLegroom": true,
+      "extraLegroom": false,
       "exitRow": true
     },
     {
@@ -746,17 +506,7 @@
       "window":true,
       "aisle": false,
       "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "13B",
-      "rowNumber": 13,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
+      "exitRow": false
     },
     {
       "seatNumber": "13C",
@@ -766,7 +516,7 @@
       "window": false,
       "aisle": true,
       "extraLegroom": false,
-      "exitRow": true
+      "exitRow": false
     },
     {
       "seatNumber": "13D",
@@ -776,17 +526,47 @@
       "window": false,
       "aisle": true,
       "extraLegroom": false,
-      "exitRow": true
+      "exitRow": false
     },
     {
-      "seatNumber": "13E",
+      "seatNumber": "13F",
       "rowNumber": 13,
-      "seatLetter": "E",
+      "seatLetter": "F",
       "seatClassName": "ECONOMY",
-      "window": false,
+      "window": true,
       "aisle": false,
       "extraLegroom": false,
-      "exitRow": true
+      "exitRow": false
+    },
+    {
+      "seatNumber": "14A",
+      "rowNumber": 14,
+      "seatLetter": "A",
+      "seatClassName": "ECONOMY",
+      "window":true,
+      "aisle": false,
+      "extraLegroom": false,
+      "exitRow": false
+    },
+    {
+      "seatNumber": "14C",
+      "rowNumber": 14,
+      "seatLetter": "C",
+      "seatClassName": "ECONOMY",
+      "window": false,
+      "aisle": true,
+      "extraLegroom": false,
+      "exitRow": false
+    },
+    {
+      "seatNumber": "14D",
+      "rowNumber": 14,
+      "seatLetter": "D",
+      "seatClassName": "ECONOMY",
+      "window": false,
+      "aisle": true,
+      "extraLegroom": false,
+      "exitRow": false
     },
     {
       "seatNumber": "14F",
@@ -796,7 +576,7 @@
       "window": true,
       "aisle": false,
       "extraLegroom": false,
-      "exitRow": true
+      "exitRow": false
     },
     {
       "seatNumber": "15A",
@@ -804,16 +584,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "15B",
-      "rowNumber": 15,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -839,16 +609,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "15E",
-      "rowNumber": 15,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "15F",
       "rowNumber": 15,
       "seatLetter": "F",
@@ -864,16 +624,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "16B",
-      "rowNumber": 16,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -899,16 +649,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "16E",
-      "rowNumber": 16,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "16F",
       "rowNumber": 16,
       "seatLetter": "F",
@@ -924,16 +664,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "17B",
-      "rowNumber": 17,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -959,16 +689,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "17E",
-      "rowNumber": 17,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "17F",
       "rowNumber": 17,
       "seatLetter": "F",
@@ -984,16 +704,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "18B",
-      "rowNumber": 18,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -1019,16 +729,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "18E",
-      "rowNumber": 18,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "18F",
       "rowNumber": 18,
       "seatLetter": "F",
@@ -1044,16 +744,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "19B",
-      "rowNumber": 19,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -1079,16 +769,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "19E",
-      "rowNumber": 19,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "19F",
       "rowNumber": 19,
       "seatLetter": "F",
@@ -1104,16 +784,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "20B",
-      "rowNumber": 20,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -1139,16 +809,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "20E",
-      "rowNumber": 20,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "20F",
       "rowNumber": 20,
       "seatLetter": "F",
@@ -1164,16 +824,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "21B",
-      "rowNumber": 21,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -1199,16 +849,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "21E",
-      "rowNumber": 21,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "21F",
       "rowNumber": 21,
       "seatLetter": "F",
@@ -1224,16 +864,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "22B",
-      "rowNumber": 22,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -1259,16 +889,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "22E",
-      "rowNumber": 22,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "22F",
       "rowNumber": 22,
       "seatLetter": "F",
@@ -1284,16 +904,6 @@
       "seatLetter": "A",
       "seatClassName": "ECONOMY",
       "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "23B",
-      "rowNumber": 23,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
       "aisle": false,
       "extraLegroom": false,
       "exitRow": false
@@ -1319,16 +929,6 @@
       "exitRow": false
     },
     {
-      "seatNumber": "23E",
-      "rowNumber": 23,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
       "seatNumber": "23F",
       "rowNumber": 23,
       "seatLetter": "F",
@@ -1346,17 +946,7 @@
       "window":true,
       "aisle": false,
       "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "24B",
-      "rowNumber": 24,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
+      "exitRow": true
     },
     {
       "seatNumber": "24C",
@@ -1366,7 +956,7 @@
       "window": false,
       "aisle": true,
       "extraLegroom": false,
-      "exitRow": false
+      "exitRow": true
     },
     {
       "seatNumber": "24D",
@@ -1376,17 +966,7 @@
       "window": false,
       "aisle": true,
       "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "24E",
-      "rowNumber": 24,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
+      "exitRow": true
     },
     {
       "seatNumber": "24F",
@@ -1396,7 +976,7 @@
       "window": true,
       "aisle": false,
       "extraLegroom": false,
-      "exitRow": false
+      "exitRow": true
     },
     {
       "seatNumber": "25A",
@@ -1406,17 +986,7 @@
       "window":true,
       "aisle": false,
       "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "25B",
-      "rowNumber": 25,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
+      "exitRow": true
     },
     {
       "seatNumber": "25C",
@@ -1426,7 +996,7 @@
       "window": false,
       "aisle": true,
       "extraLegroom": false,
-      "exitRow": false
+      "exitRow": true
     },
     {
       "seatNumber": "25D",
@@ -1436,261 +1006,11 @@
       "window": false,
       "aisle": true,
       "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "25E",
-      "rowNumber": 25,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
+      "exitRow": true
     },
     {
       "seatNumber": "25F",
       "rowNumber": 25,
-      "seatLetter": "F",
-      "seatClassName": "ECONOMY",
-      "window": true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "26A",
-      "rowNumber": 26,
-      "seatLetter": "A",
-      "seatClassName": "ECONOMY",
-      "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "26B",
-      "rowNumber": 26,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "26C",
-      "rowNumber": 26,
-      "seatLetter": "C",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": true,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "26D",
-      "rowNumber": 26,
-      "seatLetter": "D",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": true,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "26E",
-      "rowNumber": 26,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "26F",
-      "rowNumber": 26,
-      "seatLetter": "F",
-      "seatClassName": "ECONOMY",
-      "window": true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "27A",
-      "rowNumber": 27,
-      "seatLetter": "A",
-      "seatClassName": "ECONOMY",
-      "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "27B",
-      "rowNumber": 27,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "27C",
-      "rowNumber": 27,
-      "seatLetter": "C",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": true,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "27D",
-      "rowNumber": 27,
-      "seatLetter": "D",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": true,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "27E",
-      "rowNumber": 27,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "27F",
-      "rowNumber": 27,
-      "seatLetter": "F",
-      "seatClassName": "ECONOMY",
-      "window": true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": false
-    },
-    {
-      "seatNumber": "28A",
-      "rowNumber": 28,
-      "seatLetter": "A",
-      "seatClassName": "ECONOMY",
-      "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "28B",
-      "rowNumber": 28,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "28C",
-      "rowNumber": 28,
-      "seatLetter": "C",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": true,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "28D",
-      "rowNumber": 28,
-      "seatLetter": "D",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": true,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "28E",
-      "rowNumber": 28,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "28F",
-      "rowNumber": 28,
-      "seatLetter": "F",
-      "seatClassName": "ECONOMY",
-      "window": true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "29A",
-      "rowNumber": 29,
-      "seatLetter": "A",
-      "seatClassName": "ECONOMY",
-      "window":true,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "29B",
-      "rowNumber": 29,
-      "seatLetter": "B",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "29C",
-      "rowNumber": 29,
-      "seatLetter": "C",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": true,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "29D",
-      "rowNumber": 29,
-      "seatLetter": "D",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": true,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "29E",
-      "rowNumber": 29,
-      "seatLetter": "E",
-      "seatClassName": "ECONOMY",
-      "window": false,
-      "aisle": false,
-      "extraLegroom": false,
-      "exitRow": true
-    },
-    {
-      "seatNumber": "29F",
-      "rowNumber": 29,
       "seatLetter": "F",
       "seatClassName": "ECONOMY",
       "window": true,
