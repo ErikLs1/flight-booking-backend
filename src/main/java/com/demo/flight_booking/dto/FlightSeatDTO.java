@@ -12,4 +12,8 @@ public class FlightSeatDTO {
     private Long seatId;
     private Long flightId;
     private Boolean isBooked;
+    private String seatNumber;
+    private Integer rowNumber;
+    private String seatLetter;
+    private String seatClassName;
 }

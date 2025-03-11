@@ -1,15 +1,19 @@
 package com.demo.flight_booking.service.impl;
 
 import com.demo.flight_booking.dto.FlightDTO;
+import com.demo.flight_booking.dto.SeatClassFeeDto;
 import com.demo.flight_booking.dto.filter.FlightFilterDTO;
 import com.demo.flight_booking.mapper.FlightMapper;
 import com.demo.flight_booking.model.Flight;
+import com.demo.flight_booking.model.SeatClass;
+import com.demo.flight_booking.model.enums.SeatClassType;
 import com.demo.flight_booking.repository.FlightRepository;
 import com.demo.flight_booking.service.FlightService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -87,4 +91,39 @@ public class FlightServiceImpl implements FlightService {
                 .map(flightMapper::toDTO)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public String getAircraftModelByFlightId(Long flightId) {
+        return flightRepository.findAircraftModelByFlightId(flightId);
+    }
+
+    @Override
+    public List<SeatClassType> getSeatClassesByFlightId(Long flightId) {
+        return flightRepository.findSeatClassesByFlightId(flightId);
+    }
+
+    @Override
+    public List<String> getFlightCitiesByFlightId(Long flightId) {
+        List<String> cities = flightRepository.findFlightCitiesByFlightId(flightId);
+        List<String> result = new ArrayList<>();
+        for(String s : cities) {
+            result.add(s.split(",")[0]);
+            result.add(s.split(",")[1]);
+        }
+        return result;
+    }
+
+    @Override
+    public List<SeatClassFeeDto> getSeatClassesForFlight(Long flightId) {
+        Flight flight = flightRepository.findById(flightId)
+                .orElseThrow(() -> new RuntimeException("Flight not found"));
+
+        List<SeatClass> seatClasses = flight.getAircraft().getSeatClasses();
+
+        return seatClasses.stream()
+                .map(sc -> new SeatClassFeeDto(sc.getSeatClassName(), sc.getBasePrice()))
+                .toList();
+    }
+
+
 }

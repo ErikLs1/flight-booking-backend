@@ -12,6 +12,10 @@ public interface FlightSeatMapper {
 
     @Mapping(source = "seat.seatId", target = "seatId")
     @Mapping(source = "flight.flightId", target = "flightId")
+    @Mapping(source = "seat.seatNumber", target = "seatNumber")
+    @Mapping(source = "seat.rowNumber", target = "rowNumber")
+    @Mapping(source = "seat.seatLetter", target = "seatLetter")
+    @Mapping(source = "seat.seatClass.seatClassName", target = "seatClassName")
     FlightSeatDTO toDTO(FlightSeat flightSeat);
 
     @Mapping(source = "seatId", target = "seat.seatId")

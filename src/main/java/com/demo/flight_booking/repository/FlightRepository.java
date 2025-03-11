@@ -1,6 +1,7 @@
 package com.demo.flight_booking.repository;
 
 import com.demo.flight_booking.model.Flight;
+import com.demo.flight_booking.model.enums.SeatClassType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -12,17 +13,6 @@ import java.util.List;
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
-    /**
-     * Filters flights based on multiple optional criteria.
-     *
-     * @param departureAirportId the id of the departure airport.
-     * @param arrivalAirportId the id of the arrival airport.
-     * @param airlineId the id of the airline.
-     * @param maxPrice the maximum price for the flight.
-     * @param departureStartTime the start of the departure time range.
-     * @param departureEndTime the end of the departure time range.
-     * @return A list of Flight objects matching the given filters.
-     */
     @Query("""
     SELECT f
     FROM Flight f
@@ -47,4 +37,16 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
         @Param("depStart") LocalDateTime departureStartTime,
         @Param("depEnd") LocalDateTime departureEndTime
     );
+
+    // Returns aircraft model for a specific flight
+    @Query("SELECT f.aircraft.aircraftModel FROM Flight f WHERE f.flightId = :flightId")
+    String findAircraftModelByFlightId(Long flightId);
+
+    // Return unique seat classes for the flight (Economy, Premium)
+    @Query("SELECT DISTINCT fs.seat.seatClass.seatClassName FROM FlightSeat fs WHERE fs.flight.flightId = :flightId")
+    List<SeatClassType> findSeatClassesByFlightId(Long flightId);
+
+    // Return list of arrival and departure city for a specific flight
+    @Query("SELECT f.departureAirport.airportCity, f.arrivalAirport.airportCity FROM Flight f WHERE f.flightId = :flightId")
+    List<String> findFlightCitiesByFlightId(Long flightId);
 }

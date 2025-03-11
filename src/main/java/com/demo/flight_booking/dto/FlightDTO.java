@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -20,4 +21,9 @@ public class FlightDTO {
     private LocalDateTime departureTime;
     private LocalDateTime arrivalTime;
     private Double basePrice;
+
+    private String airlineName;
+    private String departureCity;
+    private String arrivalCity;
+    private List<SeatClassFeeDto> seatClasses;
 }

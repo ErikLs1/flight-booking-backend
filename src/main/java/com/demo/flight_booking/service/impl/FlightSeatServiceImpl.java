@@ -56,4 +56,12 @@ public class FlightSeatServiceImpl implements FlightSeatService {
         }
         flightSeatRepository.deleteById(id);
     }
+
+    @Override
+    public List<FlightSeatDTO> getSeatByFlightId(Long flightId) {
+
+        return flightSeatRepository.findByFlight_FlightId(flightId).stream()
+                .map(flightSeatMapper::toDTO)
+                .toList();
+    }
 }

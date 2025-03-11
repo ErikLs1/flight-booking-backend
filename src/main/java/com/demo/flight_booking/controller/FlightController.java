@@ -1,7 +1,9 @@
 package com.demo.flight_booking.controller;
 
 import com.demo.flight_booking.dto.FlightDTO;
+import com.demo.flight_booking.dto.SeatClassFeeDto;
 import com.demo.flight_booking.dto.filter.FlightFilterDTO;
+import com.demo.flight_booking.model.enums.SeatClassType;
 import com.demo.flight_booking.service.FlightService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -52,5 +54,29 @@ public class FlightController implements BasicController<FlightDTO, Long> {
     public ResponseEntity<List<FlightDTO>> filterFlights(@RequestBody FlightFilterDTO filter) {
         List<FlightDTO> result = flightService.searchFlights(filter);
         return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/{flightId}/aircraft-model")
+    public ResponseEntity<String> getAircraftModel(@PathVariable Long flightId) {
+        String model = flightService.getAircraftModelByFlightId(flightId);
+        return ResponseEntity.ok(model);
+    }
+
+    @GetMapping("/{flightId}/seat-classes")
+    public ResponseEntity<List<SeatClassType>> getSeatClassesByFlightId(@PathVariable Long flightId) {
+        List<SeatClassType> seatClassTypes = flightService.getSeatClassesByFlightId(flightId);
+        return ResponseEntity.ok(seatClassTypes);
+    }
+
+    @GetMapping("/{flightId}/cities")
+    public ResponseEntity<List<String>> getFlightCitiesByFlightId(@PathVariable Long flightId) {
+        List<String> cities = flightService.getFlightCitiesByFlightId(flightId);
+        return ResponseEntity.ok(cities);
+    }
+
+    @GetMapping("/{flightId}/seat-class-fee")
+    public ResponseEntity<List<SeatClassFeeDto>> getSeatByFlightId(@PathVariable Long flightId) {
+        List<SeatClassFeeDto> seatClassFees = flightService.getSeatClassesForFlight(flightId);
+        return ResponseEntity.ok(seatClassFees);
     }
 }

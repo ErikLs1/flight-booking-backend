@@ -1,7 +1,9 @@
 package com.demo.flight_booking.mapper;
 
 import com.demo.flight_booking.dto.FlightDTO;
+import com.demo.flight_booking.dto.SeatClassFeeDto;
 import com.demo.flight_booking.model.Flight;
+import com.demo.flight_booking.model.SeatClass;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -11,14 +13,22 @@ public interface FlightMapper {
     FlightMapper INSTANCE = Mappers.getMapper(FlightMapper.class);
 
     @Mapping(source = "airline.airlineId", target = "airlineId")
+    @Mapping(source = "airline.airlineName", target = "airlineName")
     @Mapping(source = "departureAirport.airportId", target = "departureAirportId")
+    @Mapping(source = "departureAirport.airportCity", target = "departureCity")
     @Mapping(source = "arrivalAirport.airportId", target = "arrivalAirportId")
+    @Mapping(source = "arrivalAirport.airportCity", target = "arrivalCity")
     @Mapping(source = "aircraft.aircraftId", target = "aircraftId")
+    @Mapping(source = "aircraft.seatClasses", target = "seatClasses")
     FlightDTO toDTO(Flight flight);
+
 
     @Mapping(source = "airlineId", target = "airline.airlineId")
     @Mapping(source = "departureAirportId", target = "departureAirport.airportId")
     @Mapping(source = "arrivalAirportId", target = "arrivalAirport.airportId")
     @Mapping(source = "aircraftId", target = "aircraft.aircraftId")
     Flight toEntity(FlightDTO flightDTO);
+
+    @Mapping(source = "basePrice", target = "baseFee")
+    SeatClassFeeDto toSeatClassFeeDto(SeatClass seatClass);
 }

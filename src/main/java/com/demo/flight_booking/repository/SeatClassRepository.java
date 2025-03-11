@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface SeatClassRepository extends JpaRepository<SeatClass, Long> {
     Optional<SeatClass> findBySeatClassName(SeatClassType seatClassName);
+
 }

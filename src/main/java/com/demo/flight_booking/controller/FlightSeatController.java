@@ -5,9 +5,7 @@ import com.demo.flight_booking.service.FlightSeatService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,5 +44,11 @@ public class FlightSeatController implements BasicController<FlightSeatDTO, Long
     public ResponseEntity<String> delete(Long id) {
         flightSeatService.delete(id);
         return ResponseEntity.ok("FlightSeat deleted!");
+    }
+
+    @GetMapping("/flight/{flightId}")
+    public ResponseEntity<List<FlightSeatDTO>> getSeatsByFlightId(@PathVariable Long flightId) {
+        List<FlightSeatDTO> seats = flightSeatService.getSeatByFlightId(flightId);
+        return ResponseEntity.ok(seats);
     }
 }
