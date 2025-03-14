@@ -1,5 +1,7 @@
 package com.demo.flight_booking.service.impl;
 
+import com.demo.flight_booking.dto.FlightInfoDTO;
+import com.demo.flight_booking.dto.PersonDTO;
 import com.demo.flight_booking.dto.TicketDTO;
 import com.demo.flight_booking.dto.TicketInfoDTO;
 import com.demo.flight_booking.mapper.TicketMapper;
@@ -59,11 +61,41 @@ public class TicketServiceImpl implements TicketService {
         ticketRepository.deleteById(id);
     }
 
-    @Override
     public List<TicketInfoDTO> getTicketsByEmail(String email) {
         List<Ticket> tickets = ticketRepository.findByPerson_Email(email);
         return tickets.stream()
-                .map(ticketMapper::toTicketInfoDTO)
+                .map(this::convertToDTO)
                 .toList();
+    }
+
+    private TicketInfoDTO convertToDTO(Ticket ticket) {
+        TicketInfoDTO dto = new TicketInfoDTO();
+        dto.setTicketId(ticket.getTicketId());
+        dto.setTicketPrice(ticket.getTicketPrice());
+        dto.setSeatNumber(ticket.getFlightSeat().getSeat().getSeatNumber());
+        dto.setSeatClass(ticket.getFlightSeat().getSeat().getSeatClass().getSeatClassName().name());
+
+        // Map person
+        PersonDTO personDTO = new PersonDTO();
+        personDTO.setPersonId(ticket.getPerson().getPersonId());
+        personDTO.setFirstName(ticket.getPerson().getFirstName());
+        personDTO.setLastName(ticket.getPerson().getLastName());
+        personDTO.setEmail(ticket.getPerson().getEmail());
+        personDTO.setPhone(ticket.getPerson().getPhone());
+        dto.setPerson(personDTO);
+
+        // Map flight
+        FlightInfoDTO flightInfoDTO = new FlightInfoDTO();
+        flightInfoDTO.setFlightId(ticket.getFlightSeat().getFlight().getFlightId());
+        flightInfoDTO.setFlightNumber(ticket.getFlightSeat().getFlight().getFlightNumber());
+        flightInfoDTO.setDepartureCity(ticket.getFlightSeat().getFlight().getDepartureAirport().getAirportCity());
+        flightInfoDTO.setDepartureCountry(ticket.getFlightSeat().getFlight().getDepartureAirport().getAirportCountry());
+        flightInfoDTO.setArrivalCity(ticket.getFlightSeat().getFlight().getArrivalAirport().getAirportCity());
+        flightInfoDTO.setArrivalCountry(ticket.getFlightSeat().getFlight().getArrivalAirport().getAirportCountry());
+        flightInfoDTO.setDepartureTime(ticket.getFlightSeat().getFlight().getDepartureTime());
+        flightInfoDTO.setArrivalTime(ticket.getFlightSeat().getFlight().getArrivalTime());
+        dto.setFlight(flightInfoDTO);
+
+        return dto;
     }
 }

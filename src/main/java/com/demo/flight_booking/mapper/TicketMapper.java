@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "spring", uses = {FlightMapper.class})
+@Mapper(componentModel = "spring")
 public interface TicketMapper {
     TicketMapper INSTANCE = Mappers.getMapper(TicketMapper.class);
 
@@ -19,11 +19,12 @@ public interface TicketMapper {
     @Mapping(source = "flightSeatId", target = "flightSeat.flightSeatId")
     Ticket toEntity(TicketDTO ticketDTO);
 
-    @Mapping(source = "ticketId", target = "ticketId")
-    @Mapping(source = "ticketPrice", target = "ticketPrice")
-    @Mapping(source = "flightSeat.seat.seatNumber", target = "seatNumber")
-    @Mapping(source = "flightSeat.seat.seatClass.seatClassName", target = "seatClass")
-    @Mapping(source = "person", target = "person")
-    @Mapping(source = "flightSeat.flight", target = "flight")
-    TicketInfoDTO toTicketInfoDTO(Ticket ticket);
+//    @Mapping(source = "ticketId", target = "ticketId")
+//    @Mapping(source = "ticketPrice", target = "ticketPrice")
+//    @Mapping(source = "flightSeat.seat.seatNumber", target = "seatNumber")
+//    @Mapping(source = "flightSeat.seat.seatClass.seatClassName", target = "seatClass")
+//    @Mapping(source = "person", target = "person")
+//    @Mapping(source = "flightSeat.flight", target = "flight")
+//    TicketInfoDTO toTicketInfoDTO(Ticket ticket);
+    //, uses = {FlightMapper.class}
 }

@@ -1,12 +1,18 @@
 package com.demo.flight_booking.service.impl;
 
+import com.demo.flight_booking.dto.booking.BookingDTO;
 import com.demo.flight_booking.dto.booking.BookingRequestDTO;
 import com.demo.flight_booking.dto.booking.BookingResponseDTO;
 import com.demo.flight_booking.dto.PersonDTO;
+import com.demo.flight_booking.excpetion.booking.PassengerCountMismatchException;
+import com.demo.flight_booking.excpetion.booking.SeatNotFoundException;
+import com.demo.flight_booking.excpetion.booking.FlightNoFoundException;
+import com.demo.flight_booking.excpetion.booking.SeatAlreadyBookedException;
 import com.demo.flight_booking.mapper.BookingMapper;
 import com.demo.flight_booking.model.*;
 import com.demo.flight_booking.model.enums.PaymentStatus;
 import com.demo.flight_booking.repository.*;
+import com.demo.flight_booking.service.BookingService;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +23,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class BookingServiceImpl {
+public class BookingServiceImpl implements BookingService {
 
     private final PersonRepository personRepository;
     private final FlightSeatRepository flightSeatRepository;
@@ -28,12 +34,28 @@ public class BookingServiceImpl {
     private final BookingMapper bookingMapper;
 
     @Transactional
+    @Override
     public BookingResponseDTO bookFlight(BookingRequestDTO bookingRequest) {
         Flight flight = flightRepository.findById(bookingRequest.getFlightId())
-                .orElseThrow(() -> new RuntimeException("Could not find the flight with id: " + bookingRequest.getFlightId()));
+                .orElseThrow(() -> new FlightNoFoundException("Could not find the flight with id: " + bookingRequest.getFlightId()));
 
         if (bookingRequest.getPassengers().size() != bookingRequest.getSeatIds().size()) {
-            throw new RuntimeException("The number of passengers chosen seats do not match.");
+            throw new PassengerCountMismatchException(
+                    "The number of passengers chosen seats do not match. Passenger received: " +
+                    bookingRequest.getPassengers().size() +
+                    " .Seats received: " + bookingRequest.getSeatIds().size());
+        }
+
+        for (int i = 0; i < bookingRequest.getPassengers().size(); i++) {
+            PersonDTO personDTO = bookingRequest.getPassengers().get(i);
+            Long seatId = bookingRequest.getSeatIds().get(i);
+
+            FlightSeat flightSeat = flightSeatRepository.findById(seatId)
+                    .orElseThrow(() -> new SeatNotFoundException("Could not find seat with id: " + seatId));
+
+            if (flightSeat.getIsBooked()) {
+                throw new SeatAlreadyBookedException("Seat with id " + seatId + " is already booked.");
+            }
         }
 
         // Create booking
@@ -44,6 +66,7 @@ public class BookingServiceImpl {
 
         List<Ticket> tickets = new ArrayList<>();
         double totalAmount = 0.0;
+
         for (int i = 0; i < bookingRequest.getPassengers().size(); i++) {
             PersonDTO personDTO = bookingRequest.getPassengers().get(i);
             Long seatId = bookingRequest.getSeatIds().get(i);
@@ -59,13 +82,7 @@ public class BookingServiceImpl {
             }
 
             person = personRepository.save(person);
-
-            FlightSeat flightSeat = flightSeatRepository.findById(seatId)
-                    .orElseThrow(() -> new RuntimeException("Could not find seat with id: " + seatId));
-
-            if (flightSeat.getIsBooked()) {
-                throw new RuntimeException("Seat with id " + seatId + " is already booked.");
-            }
+            FlightSeat flightSeat = flightSeatRepository.findById(seatId).get();
 
             flightSeat.setIsBooked(true);
             flightSeatRepository.save(flightSeat);
@@ -100,5 +117,35 @@ public class BookingServiceImpl {
         booking.setPayment(payment);
         booking = bookingRepository.save(booking);
         return bookingMapper.toDTO(booking);
+    }
+
+    // Not implemented
+    @Override
+    public BookingDTO create(BookingDTO dto) {
+        return null;
+    }
+
+    // Not implemented
+    @Override
+    public BookingDTO update(Long aLong, BookingDTO dto) {
+        return null;
+    }
+
+    // Not implemented
+    @Override
+    public BookingDTO getById(Long aLong) {
+        return null;
+    }
+
+    // Not implemented
+    @Override
+    public List<BookingDTO> getAll() {
+        return List.of();
+    }
+
+    // Not implemented
+    @Override
+    public void delete(Long aLong) {
+
     }
 }
