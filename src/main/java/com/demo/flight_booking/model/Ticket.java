@@ -28,9 +28,11 @@ public class Ticket {
     @JoinColumn(name = "flight_seat_id", nullable = false)
     private FlightSeat flightSeat;
 
+    @ManyToOne
+    @JoinColumn(name = "booking_id", nullable = false)
+    private Booking booking;
+
     @Column(nullable = false)
     private Double ticketPrice;
 
-    @Column(nullable = false)
-    private LocalDateTime bookingDate;
 }

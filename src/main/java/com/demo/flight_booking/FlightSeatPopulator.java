@@ -25,6 +25,10 @@ public class FlightSeatPopulator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        if (flightSeatRepository.count() > 0) {
+            return;
+        }
+
         List<Flight> flights = flightRepository.findAll();
         Random random = new Random();
 

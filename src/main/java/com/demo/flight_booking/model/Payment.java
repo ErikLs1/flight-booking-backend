@@ -21,8 +21,8 @@ public class Payment {
     private Long paymentId;
 
     @OneToOne
-    @JoinColumn(name = "ticket_id", nullable = false)
-    private Ticket ticket;
+    @JoinColumn(name = "booking_id", nullable = false)
+    private Booking booking;
 
     @Column(nullable = false)
     private Double amount;

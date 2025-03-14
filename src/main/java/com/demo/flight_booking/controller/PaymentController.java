@@ -1,14 +1,17 @@
 package com.demo.flight_booking.controller;
 
 import com.demo.flight_booking.dto.PaymentDTO;
+import com.demo.flight_booking.model.enums.PaymentMethod;
 import com.demo.flight_booking.service.PaymentService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -47,5 +50,11 @@ public class PaymentController implements BasicController<PaymentDTO, Long> {
     public ResponseEntity<String> delete(Long id) {
         paymentService.delete(id);
         return ResponseEntity.ok("Payment deleted!");
+    }
+
+    @GetMapping("/methods")
+    public ResponseEntity<List<PaymentMethod>> getAllPaymentMethods() {
+        List<PaymentMethod> paymentMethods = Arrays.asList(PaymentMethod.values());
+        return ResponseEntity.ok(paymentMethods);
     }
 }

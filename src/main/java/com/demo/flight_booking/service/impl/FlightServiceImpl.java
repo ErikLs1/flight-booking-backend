@@ -87,6 +87,20 @@ public class FlightServiceImpl implements FlightService {
                 depEnd
         );
 
+        if (filter.getMaxPrice() != null) {
+            flights = flights.stream()
+                            .filter(flight -> {
+                                double maxFee = flight.getAircraft().getSeatClasses().stream()
+                                        .mapToDouble(SeatClass::getBasePrice)
+                                        .max()
+                                        .orElse(0.0);
+                                double finalPrice = flight.getBasePrice() + maxFee;
+                                return finalPrice <= filter.getMaxPrice();
+                            })
+                    .toList();
+        }
+
+
         return flights.stream()
                 .map(flightMapper::toDTO)
                 .collect(Collectors.toList());

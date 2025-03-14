@@ -33,6 +33,10 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        if (aircraftRepository.count() > 0) {
+            return;
+        }
+
         String[] filePaths = {
                 "data/planes/airbus/plane-A320-data.json",
                 "data/planes/airbus/plane-A321-data.json",

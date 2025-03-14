@@ -1,10 +1,9 @@
 package com.demo.flight_booking.repository;
 
-import com.demo.flight_booking.model.Person;
+import com.demo.flight_booking.model.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PersonRepository extends JpaRepository<Person, Long> {
-    Person findByEmail(String email);
+public interface BookingRepository extends JpaRepository<Booking, Long> {
 }
