@@ -1,9 +1,13 @@
 package com.demo.flight_booking.dto.filter;
 
 import com.demo.flight_booking.model.enums.SeatClassType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class SeatRecommendationDTO {
     private Long flightId;
     private int passengerCount;
@@ -15,6 +19,6 @@ public class SeatRecommendationDTO {
     private Boolean windowPreferred;
     private Boolean aislePreferred;
 
-    // if they want to sit together
+    // if users want to sit together
     private Boolean adjacentPreferred;
 }

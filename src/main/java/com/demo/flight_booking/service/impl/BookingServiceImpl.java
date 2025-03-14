@@ -1,8 +1,9 @@
 package com.demo.flight_booking.service.impl;
 
-import com.demo.flight_booking.dto.BookingRequestDTO;
-import com.demo.flight_booking.dto.BookingResponseDTO;
+import com.demo.flight_booking.dto.booking.BookingRequestDTO;
+import com.demo.flight_booking.dto.booking.BookingResponseDTO;
 import com.demo.flight_booking.dto.PersonDTO;
+import com.demo.flight_booking.mapper.BookingMapper;
 import com.demo.flight_booking.model.*;
 import com.demo.flight_booking.model.enums.PaymentStatus;
 import com.demo.flight_booking.repository.*;
@@ -24,6 +25,7 @@ public class BookingServiceImpl {
     private final PaymentRepository paymentRepository;
     private final FlightRepository flightRepository;
     private final BookingRepository bookingRepository;
+    private final BookingMapper bookingMapper;
 
     @Transactional
     public BookingResponseDTO bookFlight(BookingRequestDTO bookingRequest) {
@@ -97,8 +99,6 @@ public class BookingServiceImpl {
         payment = paymentRepository.save(payment);
         booking.setPayment(payment);
         booking = bookingRepository.save(booking);
-        BookingResponseDTO response = new BookingResponseDTO();
-        response.setBookingId(booking.getBookingId());
-        return response;
+        return bookingMapper.toDTO(booking);
     }
 }

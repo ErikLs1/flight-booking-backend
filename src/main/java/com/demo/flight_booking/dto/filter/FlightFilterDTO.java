@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 /**
  * DTO for filtering flight search results.
- * This class is user to pass filter criteria.
+ * This class is used to pass filter criteria.
  */
 @Data
 @NoArgsConstructor

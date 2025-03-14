@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -14,5 +13,4 @@ public class TicketDTO {
     private Long personId;
     private Long flightSeatId;
     private Double ticketPrice;
-    private LocalDateTime bookingDate;
 }

@@ -59,12 +59,4 @@ public class SeatController implements BasicController<SeatDTO, Long> {
         List<SeatDTO> recommended = seatRecommendationService.recommendSeats(filter);
         return ResponseEntity.ok(recommended);
     }
-
-    @GetMapping("/available")
-    public List<SeatDTO> getAvailableSeats(@RequestParam Long flightId) {
-        List<FlightSeat> freeSeats = flightSeatRepository.findByFlight_FlightIdAndIsBookedFalse(flightId);
-        return freeSeats.stream()
-                .map(fs -> seatMapper.toDTO(fs.getSeat()))
-                .toList();
-    }
 }

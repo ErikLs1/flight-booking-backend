@@ -18,6 +18,15 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 
+/**
+ * DataLoader is responsible for loading initial data into the database.
+ * It processes JSON files for aircraft, seat classes, seats and flight data.
+ *
+ * <p>
+ *     This component is executed on application startup. It reads JSON files from the classpath,
+ *     parses them into record objects, and saves the data into the database.
+ * </p>
+ */
 @Data
 @Component
 @Order(1)
@@ -31,8 +40,19 @@ public class DataLoader implements CommandLineRunner {
     private final AirportRepository airportRepository;
     private final FlightRepository flightRepository;
 
+    /**
+     * Executes the data loading process.
+     *
+     * <p>
+     *     The method first checks if aircraft data already exist in the database.
+     *     If not, it processes JSON files containing aircraft, seat classes, seats and flights data.
+     * </p>
+     * @param args command line arguments
+     * @throws Exception if an error occurs during the data processing.
+     */
     @Override
     public void run(String... args) throws Exception {
+        // Skip if data is already in the database
         if (aircraftRepository.count() > 0) {
             return;
         }
@@ -52,14 +72,12 @@ public class DataLoader implements CommandLineRunner {
 
         String flightsPath = "data/flights/airlines-airports-flights.json";
         processFlightsFile(flightsPath);
-
-        System.out.println("Data loaded");
     }
 
     /**
      * Reads JSON file and inserts aircraft, seat, classes, and seats into the database.
      *
-     * @param filePath
+     * @param filePath the path to the JSON file
      */
     private void processFile(String filePath) {
         // Parse JSON into record objects
@@ -74,23 +92,18 @@ public class DataLoader implements CommandLineRunner {
         List<SeatClassRecord> seatClassRecords = parseSeatClassRecords(json.get("seatClasses"));
         List<SeatRecord> seatRecords = parseSeatRecords(json.get("seats"));
 
-        // Insert Aircraft
         Aircraft aircraftEntity = insertAircraft(aircraftRecord);
-
-        // Insert the Aircraft
         Map<String, SeatClass> seatClassMap = insertSeatClasses(seatClassRecords, aircraftEntity);
-
-        // Insert seats
         insertSeats(seatRecords, seatClassMap, aircraftEntity);
         System.out.println("Processed: " + filePath);
     }
 
     /**
-     * Insert seats that are linked to the correct SeatClass and sameAircraft
+     * Insert seat records into the database.
      *
-     * @param seatRecords
-     * @param seatClassMap
-     * @param aircraft
+     * @param seatRecords the list of seat record objects parsed from JSON
+     * @param seatClassMap a mapping of seat class names to SeatClass entities.
+     * @param aircraft the aircraft entity for which the seats belong.
      */
     private void insertSeats(List<SeatRecord> seatRecords, Map<String, SeatClass> seatClassMap, Aircraft aircraft) {
         List<Seat> seats = new ArrayList<>();
@@ -121,11 +134,11 @@ public class DataLoader implements CommandLineRunner {
     }
 
     /**
-     * Create SeatClass entities that are tied tot the same Aircraft.
+     * Insert seat classes data into the database.
      *
-     * @param seatClassRecords
-     * @param aircraft
-     * @return
+     * @param seatClassRecords the list of seat class records parsed from JSON.
+     * @param aircraft tHE Aircraft entity that seat classes belong to.
+     * @return a map linking the seat class name to the saved SeatClass entity
      */
     private Map<String, SeatClass> insertSeatClasses(List<SeatClassRecord> seatClassRecords, Aircraft aircraft) {
         Map<String, SeatClass> seatClassMap = new HashMap<>();
@@ -144,10 +157,10 @@ public class DataLoader implements CommandLineRunner {
     }
 
     /**
-     * Create and save the aircraft entity into the database.
+     * Insert the aircraft data into the database.
      *
-     * @param record
-     * @return
+     * @param record AircraftRecord parsed from JSON.
+     * @return saved Aircraft entity.
      */
     private Aircraft insertAircraft(AircraftRecord record) {
         Aircraft aircraft = new Aircraft();
@@ -160,6 +173,12 @@ public class DataLoader implements CommandLineRunner {
         return aircraftRepository.save(aircraft);
     }
 
+    /**
+     * Parses JSON and converts it into a list of SeatRecord objects.
+     *
+     * @param node JSON node representing seats.
+     * @return List of parsed SeatRecord objects.
+     */
     private List<SeatRecord> parseSeatRecords(JsonNode node) {
         List<SeatRecord> seatRecords = new ArrayList<>();
         for (JsonNode n : node) {
@@ -177,6 +196,12 @@ public class DataLoader implements CommandLineRunner {
         return seatRecords;
     }
 
+    /**
+     * Parses JSON and converts it into a list of SeatClassRecord objects.
+     *
+     * @param node JSON node representing seatClasses.
+     * @return List of parsed SeatClassRecords.
+     */
     private List<SeatClassRecord> parseSeatClassRecords(JsonNode node) {
         List<SeatClassRecord> seatClassRecords = new ArrayList<>();
         for (JsonNode n : node) {
@@ -188,6 +213,12 @@ public class DataLoader implements CommandLineRunner {
         return seatClassRecords;
     }
 
+    /**
+     * Parses JSON and converts it into Aircraft object.
+     *
+     * @param node JSON node representing Aircraft.
+     * @return Object of parsed AircraftRecord.
+     */
     private AircraftRecord parseAircraft(JsonNode node) {
         return new AircraftRecord(
                 node.get("aircraftModel").asText(),
@@ -199,58 +230,11 @@ public class DataLoader implements CommandLineRunner {
         );
     }
 
-    // Use code below to print data in the console
-    private AircraftRecord createAircraftFromNode(JsonNode node) {
-        String aircraftModel = node.get("aircraftModel").asText();
-        Integer aircraftTotalCapacity = node.get("aircraftTotalCapacity").asInt();
-        Integer aircraftEconomySeats = node.get("aircraftEconomySeats").asInt();
-        Integer aircraftPremiumSeats = node.get("aircraftPremiumSeats").asInt();
-        Integer aircraftBusinessSeats = node.get("aircraftBusinessSeats").asInt();
-        Integer aircraftFirstClassSeats = node.get("aircraftFirstClassSeats").asInt();
-
-        return new AircraftRecord(aircraftModel,aircraftTotalCapacity,aircraftEconomySeats,aircraftPremiumSeats,aircraftBusinessSeats,aircraftFirstClassSeats);
-    }
-
-    private SeatClassRecord createSeatClassFromNode(JsonNode node) {
-        String seatClassName = node.get("seatClassName").asText();
-        Double basePrice = node.get("basePrice").asDouble();
-
-        return new SeatClassRecord(seatClassName, basePrice);
-    }
-
-    private SeatRecord createSeatFromNode(JsonNode node) {
-        String seatNumber = node.get("seatNumber").asText();
-        Integer rowNumber = node.get("rowNumber").asInt();
-        String seatLetter = node.get("seatLetter").asText();
-        String seatClassName = node.get("seatClassName").asText();
-        Boolean window = node.get("window").asBoolean();
-        Boolean asle = node.get("aisle").asBoolean();
-        Boolean extraLegroom = node.get("extraLegroom").asBoolean();
-        Boolean exitRow = node.get("exitRow").asBoolean();
-
-        return new SeatRecord(seatNumber,rowNumber, seatLetter, seatClassName, window, asle, extraLegroom, exitRow);
-    }
-
-    private JsonNode getAircraft(JsonNode json) {
-        return Optional.ofNullable(json)
-                .map(j -> j.get("aircraft"))
-                .orElseThrow(() -> new IllegalArgumentException("Invalid JSON Object."));
-    }
-
-    private JsonNode getSeatClasses(JsonNode json) {
-        return Optional.ofNullable(json)
-                .map(j -> j.get("seatClasses"))
-                .orElseThrow(() -> new IllegalArgumentException("Invalid JSON Object."));
-    }
-
-
-    private JsonNode getSeats(JsonNode json) {
-        return Optional.ofNullable(json)
-                .map(j -> j.get("seats"))
-                .orElseThrow(() -> new IllegalArgumentException("Invalid JSON Object."));
-    }
-
-
+    /**
+     *  Parse JSON file and flights, airlines and airports data.
+     *
+     * @param filePath The path to the JSON file.
+     */
     private void processFlightsFile(String filePath) {
         JsonNode json;
         try (InputStream inputStream = new ClassPathResource(filePath).getInputStream()) {
@@ -259,21 +243,22 @@ public class DataLoader implements CommandLineRunner {
             throw new RuntimeException("Failed to read JSON data", e);
         }
 
-        // 1) Parse arrays
         List<AirlineRecord> airlineRecords = parseAirlines(json.get("airlines"));
         List<AirportRecord> airportRecords = parseAirports(json.get("airports"));
         List<FlightRecord> flightRecords = parseFlights(json.get("flights"));
 
-        // 2) Insert airlines
         Map<String, Airline> airlineMap = insertAirlines(airlineRecords);
-
-        // 3) Insert airport
         Map<String, Airport> airportMap = insertAirports(airportRecords);
-
-        // 4) Insert flights
         insertFlights(flightRecords, airlineMap, airportMap);
     }
 
+    /**
+     * Insert flight records into the database.
+     *
+     * @param flightRecords the list of flight record objects parsed from JSON.
+     * @param airlineMap a mapping of airline IATA codes to Airline entities.
+     * @param airportMap a mapping of airport codes to Airport entities.
+     */
     private void insertFlights(List<FlightRecord> flightRecords, Map<String, Airline> airlineMap, Map<String, Airport> airportMap) {
         for (FlightRecord fr : flightRecords) {
             Airline airline = airlineMap.get(fr.airlineIATACode());
@@ -307,6 +292,12 @@ public class DataLoader implements CommandLineRunner {
         }
     }
 
+    /**
+     * Insert Airports data into the database.
+     *
+     * @param airportRecords The list of airport record objects parsed from JSON.
+     * @return A mapping of airport codes to the Airport entities.
+     */
     private Map<String, Airport> insertAirports(List<AirportRecord> airportRecords) {
         Map<String, Airport> map = new HashMap<>();
         for (AirportRecord record : airportRecords) {
@@ -328,6 +319,12 @@ public class DataLoader implements CommandLineRunner {
         return map;
     }
 
+    /**
+     * Inserts airline data into the database.
+     *
+     * @param airlineRecords THe list of airline record objects parsed from JSON.
+     * @return A mapping of airline IATA code to the Airline entities.
+     */
     private Map<String, Airline> insertAirlines(List<AirlineRecord> airlineRecords) {
         Map<String, Airline> map = new HashMap<>();
         for (AirlineRecord record : airlineRecords) {
@@ -347,6 +344,12 @@ public class DataLoader implements CommandLineRunner {
         return map;
     }
 
+    /**
+     * Parses JSON and converts it into a list of FlightRecord objects.
+     *
+     * @param node JSON node representing flights.
+     * @return List of parsed FlightRecord objects.
+     */
     private List<FlightRecord> parseFlights(JsonNode node) {
         List<FlightRecord> flightRecords = new ArrayList<>();
         for (JsonNode n : node) {
@@ -364,6 +367,12 @@ public class DataLoader implements CommandLineRunner {
         return flightRecords;
     }
 
+    /**
+     * Parses JSON and converts it into a list of AirportRecord objects.
+     *
+     * @param node JSON node representing airports.
+     * @return List of parsed AirportRecord objects.
+     */
     private List<AirportRecord> parseAirports(JsonNode node) {
         List<AirportRecord> airportRecords = new ArrayList<>();
         for (JsonNode n : node) {
@@ -377,6 +386,12 @@ public class DataLoader implements CommandLineRunner {
         return airportRecords;
     }
 
+    /**
+     * Parses JSON and converts it into a list of AirlineRecord objects.
+     *
+     * @param node JSON node representing airlines.
+     * @return List of parsed AirlineRecord objects.
+     */
     private List<AirlineRecord> parseAirlines(JsonNode node) {
         List<AirlineRecord> airlineRecords = new ArrayList<>();
         for (JsonNode n : node) {

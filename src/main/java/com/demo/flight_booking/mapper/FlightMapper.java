@@ -1,6 +1,7 @@
 package com.demo.flight_booking.mapper;
 
 import com.demo.flight_booking.dto.FlightDTO;
+import com.demo.flight_booking.dto.FlightInfoDTO;
 import com.demo.flight_booking.dto.SeatClassFeeDto;
 import com.demo.flight_booking.model.Flight;
 import com.demo.flight_booking.model.SeatClass;
@@ -28,6 +29,17 @@ public interface FlightMapper {
     @Mapping(source = "arrivalAirportId", target = "arrivalAirport.airportId")
     @Mapping(source = "aircraftId", target = "aircraft.aircraftId")
     Flight toEntity(FlightDTO flightDTO);
+
+
+    @Mapping(source = "flightId", target = "flightId")
+    @Mapping(source = "flightNumber", target = "flightNumber")
+    @Mapping(source = "departureAirport.airportCity", target = "departureCity")
+    @Mapping(source = "departureAirport.airportCountry", target = "departureCountry")
+    @Mapping(source = "arrivalAirport.airportCity", target = "arrivalCity")
+    @Mapping(source = "arrivalAirport.airportCountry", target = "arrivalCountry")
+    @Mapping(source = "departureTime", target = "departureTime")
+    @Mapping(source = "arrivalTime", target = "arrivalTime")
+    FlightInfoDTO toFlightInfoDTO(Flight flight);
 
     @Mapping(source = "basePrice", target = "baseFee")
     SeatClassFeeDto toSeatClassFeeDto(SeatClass seatClass);

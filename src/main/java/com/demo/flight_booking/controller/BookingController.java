@@ -1,7 +1,7 @@
 package com.demo.flight_booking.controller;
 
-import com.demo.flight_booking.dto.BookingRequestDTO;
-import com.demo.flight_booking.dto.BookingResponseDTO;
+import com.demo.flight_booking.dto.booking.BookingRequestDTO;
+import com.demo.flight_booking.dto.booking.BookingResponseDTO;
 import com.demo.flight_booking.service.impl.BookingServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
