@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    env_file:
+      .env
+    ports:
+      - "5433:5432"
+
+  backend:
+    build: .
+    ports:
+      - "8000:8080"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/flight-db
+
+  frontend:
+    build: ../../flight-booking/flight-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      VITE_API_URL: http://localhost:8000
+

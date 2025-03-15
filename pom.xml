@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.demo</groupId>
-	<artifactId>flight-booking</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>flight-booking-API</artifactId>
+	<version>0.0.1</version>
 	<name>flight-booking</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>

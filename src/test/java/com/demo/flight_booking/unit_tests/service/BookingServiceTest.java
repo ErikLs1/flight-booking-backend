@@ -28,8 +28,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class BookingServiceTest {
@@ -143,6 +142,8 @@ public class BookingServiceTest {
 
         Exception ex = assertThrows(FlightNoFoundException.class, () -> bookingService.bookFlight(request));
         assertTrue(ex.getMessage().contains("Could not find the flight"));
+        assertEquals(0, bookingRepository.count(),
+                "Expected 0 bookings, but found " + bookingRepository.count());
     }
 
     @Test
@@ -169,6 +170,8 @@ public class BookingServiceTest {
 
         Exception ex = assertThrows(PassengerCountMismatchException.class, () -> bookingService.bookFlight(request));
         assertTrue(ex.getMessage().contains("do not match"));
+        assertEquals(0, bookingRepository.count(),
+                "Expected 0 bookings, but found " + bookingRepository.count());
     }
 
     @Test
@@ -190,6 +193,8 @@ public class BookingServiceTest {
 
         Exception ex = assertThrows(SeatNotFoundException.class, () -> bookingService.bookFlight(request));
         assertTrue(ex.getMessage().contains("Could not find seat with id"));
+        assertEquals(0, bookingRepository.count(),
+                "Expected 0 bookings, but found " + bookingRepository.count());
     }
 
     @Test
@@ -213,6 +218,8 @@ public class BookingServiceTest {
 
         Exception ex = assertThrows(SeatAlreadyBookedException.class, () -> bookingService.bookFlight(request));
         assertTrue(ex.getMessage().contains("already booked"));
+        assertEquals(0, bookingRepository.count(),
+                "Expected 0 bookings, but found " + bookingRepository.count());
     }
 
     @Test
@@ -253,7 +260,136 @@ public class BookingServiceTest {
 
         assertNotNull(response);
         assertNotNull(response.getBookingId());
+        assertEquals(PaymentMethod.CREDIT_CARD, payment.getPaymentMethod(),
+                "Expected payment method is CREDIT_CARD, but received " + payment.getPaymentMethod());
+        assertEquals(PaymentStatus.COMPLETED, payment.getPaymentStatus(),
+                "Expected payment status is COMPLETED, but received " + payment.getPaymentStatus());
+        assertEquals(150.0, payment.getAmount(),
+                "Expected total amount is 150.0, but received " + payment.getAmount());
         verify(flightSeatRepository).save(any(FlightSeat.class));
     }
+
+    @Test
+    void testMultiplePassengerBooking_PriceCalculation() {
+        Seat seat2 = new Seat();
+        seat2.setSeatNumber("1B");
+        seat2.setRowNumber(1);
+        seat2.setSeatLetter("B");
+        seat2.setAircraft(aircraft);
+        seat2.setSeatClass(seatClass);
+        seat2.setAisle(true);
+        seat2.setWindow(false);
+        seat2.setNearExit(false);
+        seat2.setExtraLegRoom(true);
+
+        FlightSeat flightSeat2 = new FlightSeat();
+        flightSeat2.setFlight(flight);
+        flightSeat2.setSeat(seat2);
+        flightSeat2.setIsBooked(false);
+
+        double expectedTotalAmount = 150.0 * 2;
+
+        PersonDTO person1 = new PersonDTO();
+        person1.setFirstName("John");
+        person1.setLastName("Devol");
+        person1.setEmail("john.devol@gmail.com");
+        person1.setPhone("+1234567");
+
+        PersonDTO person2 = new PersonDTO();
+        person2.setFirstName("Bob");
+        person2.setLastName("Devol");
+        person2.setEmail("bob.devol@gmail.com");
+        person2.setPhone("+2345679");
+
+        BookingRequestDTO request = new BookingRequestDTO();
+        request.setFlightId(1L);
+        request.setPassengers(Arrays.asList(person1, person2));
+        request.setSeatIds(Arrays.asList(1L, 2L));
+        request.setPaymentMethod(PaymentMethod.CREDIT_CARD);
+
+        when(flightRepository.findById(1L)).thenReturn(Optional.of(flight));
+        when(flightSeatRepository.findById(1L)).thenReturn(Optional.of(flightSeat));
+        when(flightSeatRepository.findById(2L)).thenReturn(Optional.of(flightSeat2));
+
+        when(personRepository.findByEmail("john.devol@gmail.com")).thenReturn(null);
+        when(personRepository.findByEmail("bob.devol@gmail.com")).thenReturn(null);
+        when(personRepository.save(any(Person.class))).thenAnswer(i -> i.getArguments()[0]);
+
+        Booking savedBooking = Booking.builder().bookingDate(LocalDateTime.now()).build();
+        when(bookingRepository.save(any(Booking.class))).thenReturn(savedBooking);
+        when(ticketRepository.save(any(Ticket.class))).thenAnswer(i -> i.getArguments()[0]);
+
+        Payment payment = Payment.builder()
+                .amount(expectedTotalAmount)
+                .paymentMethod(PaymentMethod.CREDIT_CARD)
+                .paymentStatus(PaymentStatus.COMPLETED)
+                .build();
+        when(paymentRepository.save(any(Payment.class))).thenReturn(payment);
+
+        BookingResponseDTO responseDTO = new BookingResponseDTO();
+        responseDTO.setBookingId(1L);
+        when(bookingMapper.toDTO(any(Booking.class))).thenReturn(responseDTO);
+
+        BookingResponseDTO response = bookingService.bookFlight(request);
+        assertNotNull(response);
+        assertNotNull(response.getBookingId());
+        assertEquals(expectedTotalAmount, payment.getAmount(),
+                "Expected total amount is " + expectedTotalAmount + "but received " + payment.getAmount());
+        verify(ticketRepository, times(2)).save(any(Ticket.class));
+    }
+
+    @Test
+    void testDuplicatePersonNotCreated() {
+        Person person1 = new Person();
+        person1.setLastName("Jane");
+        person1.setLastName("Smith");
+        person1.setEmail("jane.smith@gmail.com");
+        person1.setPhone("+123456");
+
+        when(personRepository.findByEmail("jane.smith@gmail.com")).thenReturn(person1);
+
+        PersonDTO person2 = new PersonDTO();
+        person2.setFirstName("Jane");
+        person2.setLastName("Smith");
+        person2.setEmail("jane.smith@gmail.com");
+        person2.setPhone("+123456");
+
+        BookingRequestDTO request  =new BookingRequestDTO();
+        request.setFlightId(1L);
+        request.setPassengers(Collections.singletonList(person2));
+        request.setSeatIds(Collections.singletonList(1L));
+        request.setPaymentMethod(PaymentMethod.CREDIT_CARD);
+
+        when(flightRepository.findById(1L)).thenReturn(Optional.of(flight));
+        when(flightSeatRepository.findById(1L)).thenReturn(Optional.of(flightSeat));
+        when(personRepository.save(any(Person.class))).thenAnswer(i -> i.getArguments()[0]);
+
+        Booking savedBooking = Booking.builder().bookingDate(LocalDateTime.now()).build();
+        when(bookingRepository.save(any(Booking.class))).thenReturn(savedBooking);
+        when(ticketRepository.save(any(Ticket.class))).thenAnswer(i -> i.getArguments()[0]);
+
+        Payment payment = Payment.builder()
+                .amount(150.0)
+                .paymentMethod(PaymentMethod.CREDIT_CARD)
+                .paymentStatus(PaymentStatus.COMPLETED)
+                .build();
+        when(paymentRepository.save(any(Payment.class))).thenReturn(payment);
+
+        BookingResponseDTO responseDTO = new BookingResponseDTO();
+        responseDTO.setBookingId(1L);
+        when(bookingMapper.toDTO(any(Booking.class))).thenReturn(responseDTO);
+
+        BookingResponseDTO response = bookingService.bookFlight(request);
+        assertNotNull(response);
+        assertEquals("Jane", person2.getFirstName(),
+                "Expected firs name 'Jane', but found " + person2.getFirstName());
+        assertEquals("Smith", person2.getLastName(),
+                "Expected last name 'Smith', but found " + person2.getLastName());
+        assertEquals("+123456", person2.getPhone(),
+                "Expected phone '+123456', but found " + person2.getPhone());
+
+        verify(personRepository).findByEmail("jane.smith@gmail.com");
+    }
+
 }
 
