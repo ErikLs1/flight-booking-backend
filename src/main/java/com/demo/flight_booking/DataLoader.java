@@ -403,38 +403,4 @@ public class DataLoader implements CommandLineRunner {
         }
         return airlineRecords;
     }
-
-//    version: '3.8'
-//
-//    services:
-//    db:
-//    image: postgres
-//    environment:
-//            - POSTGRES_USER=postgres
-//      - POSTGRES_PASSWORD=Bosito123
-//      - POSTGRES_DB=flight-db
-//    ports:
-//            - "5433:5432"
-//
-//    backend:
-//    build: .
-//    ports:
-//            - "8000:8080"
-//    depends_on:
-//            - db
-//    environment:
-//    SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/flight-db
-//    SPRING_DATASOURCE_USERNAME: postgres
-//    SPRING_DATASOURCE_PASSWORD: Bosito123
-//
-//    frontend:
-//    build: ../../flight-booking/flight-frontend
-//    ports:
-//            - "3000:3000"
-//    depends_on:
-//            - backend
-//    environment:
-//    VITE_API_URL: http://localhost:8000
-
-
 }

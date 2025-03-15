@@ -64,11 +64,11 @@ public class TicketServiceImpl implements TicketService {
     public List<TicketInfoDTO> getTicketsByEmail(String email) {
         List<Ticket> tickets = ticketRepository.findByPerson_Email(email);
         return tickets.stream()
-                .map(this::convertToDTO)
+                .map(this::toDTO)
                 .toList();
     }
 
-    private TicketInfoDTO convertToDTO(Ticket ticket) {
+    private TicketInfoDTO toDTO(Ticket ticket) {
         TicketInfoDTO dto = new TicketInfoDTO();
         dto.setTicketId(ticket.getTicketId());
         dto.setTicketPrice(ticket.getTicketPrice());

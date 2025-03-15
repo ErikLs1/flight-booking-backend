@@ -10,9 +10,24 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Repository interface that provides methods to query flight related information.
+ */
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long> {
 
+    /**
+     * Filters flights using provided preferences, including departure and arrival
+     * cities, airline name, maximum price and departure time range.
+     *
+     * @param departureCity The departure city name (nullable).
+     * @param arrivalCity The arrival city name (nullable).
+     * @param airlineName The maximum ticket price (nullable).
+     * @param maxPrice The maximum ticket price (nullable).
+     * @param departureStartTime The start of the departure time range (nullable).
+     * @param departureEndTime The end of the departure time range (nullable).
+     * @return A list of flights matching the given preferences
+     */
     @Query("""
     SELECT f
     FROM Flight f
@@ -39,14 +54,35 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     );
 
     // Returns aircraft model for a specific flight
+
+    /**
+     * Retrieves the aircraft model assigned to a specific flight.
+     *
+     * @param flightId The id of the flight.
+     * @return The aircraft model as a String.
+     */
     @Query("SELECT f.aircraft.aircraftModel FROM Flight f WHERE f.flightId = :flightId")
     String findAircraftModelByFlightId(Long flightId);
 
     // Return unique seat classes for the flight (Economy, Premium)
+
+    /**
+     * Retrieves the distinct seat classes available for a specific flight.
+     *
+     * @param flightId The id of the flight.
+     * @return A list of seat class types (e.g., Economy, Business, Premium, First Class)
+     */
     @Query("SELECT DISTINCT fs.seat.seatClass.seatClassName FROM FlightSeat fs WHERE fs.flight.flightId = :flightId")
     List<SeatClassType> findSeatClassesByFlightId(Long flightId);
 
     // Return list of arrival and departure city for a specific flight
+
+    /**
+     * Retrieves the departure and arrival cities for a specific flight.
+     *
+     * @param flightId The id of the flight.
+     * @return A list containing two elements: departure city and arrival city.
+     */
     @Query("SELECT f.departureAirport.airportCity, f.arrivalAirport.airportCity FROM Flight f WHERE f.flightId = :flightId")
     List<String> findFlightCitiesByFlightId(Long flightId);
 }

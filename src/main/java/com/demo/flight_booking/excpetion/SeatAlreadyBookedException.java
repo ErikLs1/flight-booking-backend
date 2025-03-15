@@ -1,4 +1,4 @@
-package com.demo.flight_booking.excpetion.booking;
+package com.demo.flight_booking.excpetion;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
