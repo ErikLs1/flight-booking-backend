@@ -9,7 +9,7 @@ services:
       - "5433:5432"
 
   backend:
-    build: .
+    image: erlihh/flight-backend:latest
     ports:
       - "8000:8080"
     depends_on:
@@ -20,7 +20,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/flight-db
 
   frontend:
-    build: ../../flight-booking/flight-frontend
+    image: erlihh/flight-frontend:latest
     ports:
       - "3000:3000"
     depends_on:
