@@ -53,8 +53,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
         @Param("depEnd") LocalDateTime departureEndTime
     );
 
-    // Returns aircraft model for a specific flight
-
     /**
      * Retrieves the aircraft model assigned to a specific flight.
      *
@@ -64,8 +62,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
     @Query("SELECT f.aircraft.aircraftModel FROM Flight f WHERE f.flightId = :flightId")
     String findAircraftModelByFlightId(Long flightId);
 
-    // Return unique seat classes for the flight (Economy, Premium)
-
     /**
      * Retrieves the distinct seat classes available for a specific flight.
      *
@@ -74,8 +70,6 @@ public interface FlightRepository extends JpaRepository<Flight, Long> {
      */
     @Query("SELECT DISTINCT fs.seat.seatClass.seatClassName FROM FlightSeat fs WHERE fs.flight.flightId = :flightId")
     List<SeatClassType> findSeatClassesByFlightId(Long flightId);
-
-    // Return list of arrival and departure city for a specific flight
 
     /**
      * Retrieves the departure and arrival cities for a specific flight.

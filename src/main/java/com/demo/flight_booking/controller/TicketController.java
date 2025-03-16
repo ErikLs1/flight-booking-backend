@@ -10,6 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST Controller for managing Ticket entities.
+ *
+ * <p>
+ *     Provides endpoints for basic CRUD operations and additional endpoint
+ *     to retrieve ticket information by email.
+ * </p>
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
@@ -47,6 +55,12 @@ public class TicketController implements BasicController<TicketDTO, Long> {
         return ResponseEntity.ok("Ticket deleted!");
     }
 
+    /**
+     * Retrieves detailed ticket information based on the provided email.
+     *
+     * @param email the email address of the passenger.
+     * @return a list of TicketInfoDTO objects containing detailed ticker and flight information.
+     */
     @GetMapping("/info")
     public ResponseEntity<List<TicketInfoDTO>> getTicketInfoByEmail(@RequestParam String email) {
         List<TicketInfoDTO> ticketInfoDTOS = ticketService.getTicketsByEmail(email);

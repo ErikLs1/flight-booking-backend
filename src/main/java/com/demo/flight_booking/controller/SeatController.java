@@ -2,9 +2,6 @@ package com.demo.flight_booking.controller;
 
 import com.demo.flight_booking.dto.SeatDTO;
 import com.demo.flight_booking.dto.filter.SeatRecommendationDTO;
-import com.demo.flight_booking.mapper.SeatMapper;
-import com.demo.flight_booking.model.FlightSeat;
-import com.demo.flight_booking.repository.FlightSeatRepository;
 import com.demo.flight_booking.service.SeatService;
 import com.demo.flight_booking.service.impl.SeatRecommendationService;
 import lombok.AllArgsConstructor;
@@ -14,6 +11,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST Controller for managing Seat entities.
+ *
+ * <p>
+ *     Provides endpoints for basic CRUD operations and additional endpoint for
+ *     recommending seats based on user defined filters.
+ * </p>
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
@@ -21,8 +26,6 @@ import java.util.List;
 public class SeatController implements BasicController<SeatDTO, Long> {
     private final SeatService seatService;
     private final SeatRecommendationService seatRecommendationService;
-    private final FlightSeatRepository flightSeatRepository;
-    private final SeatMapper seatMapper;
 
     @Override
     public ResponseEntity<SeatDTO> create(SeatDTO dto) {
@@ -54,6 +57,12 @@ public class SeatController implements BasicController<SeatDTO, Long> {
         return ResponseEntity.ok("Seat deleted!");
     }
 
+    /**
+     * Recommends seats based on the provided filters.
+     *
+     * @param filter filters applied by the user.
+     * @return a list of SeatDTO objects that match the user preferences.
+     */
     @PostMapping("/recommend")
     public ResponseEntity<List<SeatDTO>> recommendSeats(@RequestBody SeatRecommendationDTO filter) {
         List<SeatDTO> recommended = seatRecommendationService.recommendSeats(filter);

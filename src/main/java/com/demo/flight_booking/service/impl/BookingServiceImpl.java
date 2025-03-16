@@ -21,6 +21,12 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Provides the business logic for processing the booking.
+ * It takes the booking request, checks seat availability, creates booking,
+ * creates tickets for each passenger and calculates the total booking amount.
+ * Transactional annotation is used to unsure that the booking is not created with missing data.
+ */
 @Service
 @AllArgsConstructor
 public class BookingServiceImpl implements BookingService {
@@ -33,6 +39,17 @@ public class BookingServiceImpl implements BookingService {
     private final BookingRepository bookingRepository;
     private final BookingMapper bookingMapper;
 
+    /**
+     * Books a flight by using data from the booking request.
+     * The method performs basic validations like making sure that flight exist, the number of passengers matches the
+     * number of seat ids, each seat is available, otherwise throws an exception.
+     * If no exceptions was throws it creates a Booking, assigning tickets to each passenger,
+     * calculates the total cost of the booking and created Payment.
+     *
+     * @param bookingRequest a BookingRequestDTO containing the flight id, passengers details, a list fo FlightSeat ids
+     *                       and the payment method.
+     * @return a BookingResponseDTO containing the id of the created booking.
+     */
     @Transactional
     @Override
     public BookingResponseDTO bookFlight(BookingRequestDTO bookingRequest) {
@@ -46,8 +63,8 @@ public class BookingServiceImpl implements BookingService {
                     " .Seats received: " + bookingRequest.getSeatIds().size());
         }
 
+        // Check seat availability
         for (int i = 0; i < bookingRequest.getPassengers().size(); i++) {
-            PersonDTO personDTO = bookingRequest.getPassengers().get(i);
             Long seatId = bookingRequest.getSeatIds().get(i);
 
             FlightSeat flightSeat = flightSeatRepository.findById(seatId)

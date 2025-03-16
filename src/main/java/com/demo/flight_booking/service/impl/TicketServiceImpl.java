@@ -14,6 +14,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Implements the Ticket service interface.
+ *
+ * <p>
+ *     Provides basic CRUD operations and additional method for retrieving detailed
+ *     ticket information by using a passenger's email address.
+ * </p>
+ */
 @Service
 @AllArgsConstructor
 public class TicketServiceImpl implements TicketService {
@@ -61,6 +69,12 @@ public class TicketServiceImpl implements TicketService {
         ticketRepository.deleteById(id);
     }
 
+    /**
+     * Retrieves the detailed ticket information for all tickets associated with the specified email.
+     *
+     * @param email the email address of the passenger.
+     * @return a list of TicketInfoDTO objects containing ticket, passenger and flight details.
+     */
     public List<TicketInfoDTO> getTicketsByEmail(String email) {
         List<Ticket> tickets = ticketRepository.findByPerson_Email(email);
         return tickets.stream()

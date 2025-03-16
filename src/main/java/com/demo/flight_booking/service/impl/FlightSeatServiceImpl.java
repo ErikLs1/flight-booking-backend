@@ -11,6 +11,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Implements FlightSeat Service interface.
+ *
+ * <p>
+ *     Provide basic CRUD operations and additional method to retrieve flight seats by flight id.
+ * </p>
+ */
 @Service
 @AllArgsConstructor
 public class FlightSeatServiceImpl implements FlightSeatService {
@@ -57,6 +64,12 @@ public class FlightSeatServiceImpl implements FlightSeatService {
         flightSeatRepository.deleteById(id);
     }
 
+    /**
+     * Retrieves all flight seats for the specified flight.
+     *
+     * @param flightId the id of the flight.
+     * @return a list of FlightSeatDTO objects for the given flight.
+     */
     @Override
     public List<FlightSeatDTO> getSeatByFlightId(Long flightId) {
 

@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * REST Controller for managing Airline entities.
+ *
+ * <p>
+ *     Provides endpoints for create, update, retrieve and delete airline.
+ * </p>
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController

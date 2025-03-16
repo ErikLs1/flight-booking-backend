@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+/**
+ * REST Controller for managing flight seats.
+ * <p>
+ *     Provides basic CRUD endpoints and additional
+ *     endpoint to retrieve seats for a specific flight.
+ * </p>
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
@@ -46,6 +53,13 @@ public class FlightSeatController implements BasicController<FlightSeatDTO, Long
         return ResponseEntity.ok("FlightSeat deleted!");
     }
 
+    /**
+     * Retrieve all flight seats associated with a specific flight,
+     * sorted by row and seat letter.
+     *
+     * @param flightId the id of the flight.
+     * @return a list of FlightSeatDTO objects.
+     */
     @GetMapping("/flight/{flightId}")
     public ResponseEntity<List<FlightSeatDTO>> getSeatsByFlightId(@PathVariable Long flightId) {
         List<FlightSeatDTO> seats = flightSeatService.getSeatByFlightId(flightId);

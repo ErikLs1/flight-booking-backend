@@ -179,9 +179,9 @@ public class SeatRecommendationService {
      *     Meaning that seats are located next to each other. Example: Seats with letters A and B.
      * </p>
      *
-     * @param prev
-     * @param next
-     * @return
+     * @param prev the first Seat object in the pair.
+     * @param next the second Seat object in the pair.
+     * @return true if seats are adjacent; false otherwise.
      */
     private boolean isAdjacent(Seat prev, Seat next) {
         if (!Objects.equals(prev.getRowNumber(), next.getRowNumber())) {

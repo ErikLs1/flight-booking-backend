@@ -14,6 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * REST Controller fo managing payments.
+ *
+ * <p>
+ *     It provides endpoints for basic CRUD operations and additional endpoint
+ *     to retrieve the list of supported payment methods.
+ * </p>
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
@@ -52,6 +60,11 @@ public class PaymentController implements BasicController<PaymentDTO, Long> {
         return ResponseEntity.ok("Payment deleted!");
     }
 
+    /**
+     * Retrieves all supported payment methods.
+     *
+     * @return a list of PaymentMethod enum values.
+     */
     @GetMapping("/methods")
     public ResponseEntity<List<PaymentMethod>> getAllPaymentMethods() {
         List<PaymentMethod> paymentMethods = Arrays.asList(PaymentMethod.values());

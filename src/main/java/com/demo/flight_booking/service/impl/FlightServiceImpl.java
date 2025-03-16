@@ -3,6 +3,7 @@ package com.demo.flight_booking.service.impl;
 import com.demo.flight_booking.dto.FlightDTO;
 import com.demo.flight_booking.dto.SeatClassFeeDto;
 import com.demo.flight_booking.dto.filter.FlightFilterDTO;
+import com.demo.flight_booking.excpetion.FlightNoFoundException;
 import com.demo.flight_booking.mapper.FlightMapper;
 import com.demo.flight_booking.model.Flight;
 import com.demo.flight_booking.model.SeatClass;
@@ -17,6 +18,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Implements the FlightService interface.
+ *
+ * <p>
+ *     Provides business logic for CRUD operations. Additionally, it provides method for filtering the flights
+ *     by various criteria, retrieving the aircraft model, available seat class types, flight cities, and seat class
+ *     fee details for a flight.
+ * </p>
+ */
 @Service
 @AllArgsConstructor
 public class FlightServiceImpl implements FlightService {
@@ -68,6 +78,12 @@ public class FlightServiceImpl implements FlightService {
         flightRepository.deleteById(id);
     }
 
+    /**
+     * Searches for flights based on the filtering provided in FlightFilterDTO.
+     *
+     * @param filter a FlightFilterDTO containing search parameters.
+     * @return a list of FlightDTO objects that match the filtering criteria.
+     */
     @Override
     public List<FlightDTO> searchFlights(FlightFilterDTO filter) {
         LocalDateTime depStart = filter.getDepartureStartTime() != null
@@ -106,16 +122,34 @@ public class FlightServiceImpl implements FlightService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * Retrieves the aircraft model for the flight identified by the given id.
+     *
+     * @param flightId the id of the flight.
+     * @return a String representing the aircraft model.
+     */
     @Override
     public String getAircraftModelByFlightId(Long flightId) {
         return flightRepository.findAircraftModelByFlightId(flightId);
     }
 
+    /**
+     * Retrieves the distinct seat class types available on the flight.
+     *
+     * @param flightId the id of the flight.
+     * @return a list of SeatClassType values representing available seat classes.
+     */
     @Override
     public List<SeatClassType> getSeatClassesByFlightId(Long flightId) {
         return flightRepository.findSeatClassesByFlightId(flightId);
     }
 
+    /**
+     * Retrieves the departure and arrival cities for the flight.
+     *
+     * @param flightId the id of the flight.
+     * @return a list of two strings: the departure city and the arrival city.
+     */
     @Override
     public List<String> getFlightCitiesByFlightId(Long flightId) {
         List<String> cities = flightRepository.findFlightCitiesByFlightId(flightId);
@@ -127,10 +161,16 @@ public class FlightServiceImpl implements FlightService {
         return result;
     }
 
+    /**
+     * Retrieves fee information for each seat class on the flight.
+     *
+     * @param flightId the id of the flight.
+     * @return a list of SeatClassFeeDTO objects
+     */
     @Override
     public List<SeatClassFeeDto> getSeatClassesForFlight(Long flightId) {
         Flight flight = flightRepository.findById(flightId)
-                .orElseThrow(() -> new RuntimeException("Flight not found"));
+                .orElseThrow(() -> new FlightNoFoundException("Flight with id " + flightId + " not found."));
 
         List<SeatClass> seatClasses = flight.getAircraft().getSeatClasses();
 

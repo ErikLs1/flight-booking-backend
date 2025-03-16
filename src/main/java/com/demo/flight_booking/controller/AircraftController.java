@@ -11,12 +11,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Rest controller for managing Aircraft entities.
+ *
+ * <p>
+ *     Provides endpoints to create, update, retrieve and delete aircraft.
+ * </p>
+ */
 @CrossOrigin(origins = "http://localhost:3000")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/aircraft")
-public class AircraftController implements BasicController<AircraftDTO, Long>{
-   private final AircraftService aircraftService;
+public class AircraftController implements BasicController<AircraftDTO, Long> {
+
+    private final AircraftService aircraftService;
 
     @Override
     public ResponseEntity<AircraftDTO> create(AircraftDTO dto) {
